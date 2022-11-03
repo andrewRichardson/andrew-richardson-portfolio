@@ -6,7 +6,11 @@
 
 <p align="center">Personal software engineering portfolio</p>
 
-<center>![latest build](https://github.com/github/docs/actions/workflows/deploy.yml/badge.svg)</center>
+<div align="center">
+
+<a href="https://github.com/andrewRichardson/andrew-richardson-portfolio/actions/workflows/deploy.yml">![Latest build](https://github.com/andrewRichardson/andrew-richardson-portfolio/actions/workflows/deploy.yml/badge.svg)</a>
+
+</div>
 
 ## 📖 Installation
 
