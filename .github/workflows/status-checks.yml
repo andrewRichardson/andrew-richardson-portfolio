@@ -1,3 +1,4 @@
+name: status-checks
 on:
     push:
         branches: [main]
@@ -10,7 +11,11 @@ jobs:
         runs_on: ubuntu-latest
         steps:
             - name: Check out repository
-              uses: actions/checkout@v2
+              - uses: actions/checkout@v3
+            - name: Setup node
+              - uses: actions/setup-node@v3
+                with:
+                  node-version: '18'
             - name: Install node modules
               run: yarn install
             - name: Run test suite

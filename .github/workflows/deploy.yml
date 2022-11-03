@@ -1,14 +1,19 @@
+name: deploy
 on:
     push:
         branches: [main]
 
 jobs:
-    deploy:
+    deploy-pages:
         name: Deploy to GH Pages
         runs_on: ubuntu-latest
         steps:
             - name: Check out repository
-              uses: actions/checkout@v2
+              - uses: actions/checkout@v3
+            - name: Setup node
+              - uses: actions/setup-node@v3
+                with:
+                  node-version: '18'
             - name: Install node modules
               run: yarn install
             - name: Deploy app
