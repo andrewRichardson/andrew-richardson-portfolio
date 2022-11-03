@@ -10,19 +10,27 @@
 
 To install the project, simply clone the repository, and install the required node modules with:
 
-`yarn install`
+```sh
+yarn install
+```
 
 ## Getting Started
 
-### `yarn start`
+```sh
+yarn start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `yarn test`
+```sh
+yarn test
+```
 
 Launches the test runner in the interactive watch mode.
 
-### `yarn build`
+```sh
+yarn build
+```
 
 Builds the app for production to the `build` folder.
