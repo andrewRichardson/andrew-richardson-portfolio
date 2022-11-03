@@ -1,12 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Logo from "./Logo";
-
-const highlight = "#ff8011";
-// const highlightLight = "rgba(255, 128, 17, 0.2)";
-const lightText = "#dde4f7";
-const darkText = "#9ca6c5";
-const background = "#1e293a";
+import Logo from "../assets/Logo";
+import { background, highlight, lightText, darkText } from "../utils/colors";
 
 const MainContent = styled.div`
     display: flex;
@@ -21,22 +16,6 @@ const HeadlineContainer = styled.section`
     padding: 0 150px;
     min-height: 100vh;
     width: 100%;
-
-    @media (prefers-reduced-motion: no-preference) {
-        animation: fade-in2 3s 0s ease-out;
-    }
-
-    @keyframes fade-in2 {
-        0% {
-            opacity: 0%;
-        }
-        33% {
-            opacity: 0%;
-        }
-        100% {
-            opacity: 100%;
-        }
-    }
 `;
 
 const Headline = styled.div`
@@ -66,10 +45,10 @@ const LogoContainer = styled.a`
     }
 
     @media (prefers-reduced-motion: no-preference) {
-        animation: fade-in3 3s 0s ease-out;
+        animation: fade-in-logo 2s 0s ease-out;
     }
 
-    @keyframes fade-in3 {
+    @keyframes fade-in-logo {
         0% {
             opacity: 0%;
         }
@@ -79,7 +58,7 @@ const LogoContainer = styled.a`
     }
 
     &:hover {
-        background: ${highlight};
+        -webkit-box-shadow: inset 0px -60px 0px 0px ${highlight};
         svg {
             fill: ${background};
         }
@@ -88,36 +67,92 @@ const LogoContainer = styled.a`
     transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
 `;
 
-const Intro = styled.code`
-    margin: 0 0 1.5rem 0.5rem;
+const Intro = styled.span`
+    font-size: clamp(45px, 8vw, 60px);
     color: ${highlight};
-    font-size: clamp(1rem, 5vw, 1.25rem);
-    line-height: 1.1;
-    font-weight: 400;
+    font-weight: 600;
 `;
 
 const Heading = styled.h1`
     margin: 0;
-    font-size: clamp(45px, 8vw, 70px);
+    font-size: clamp(45px, 8vw, 60px);
     font-weight: 600;
     line-height: 1.1;
     color: ${lightText};
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: fade-in-heading 1s 0s ease-out;
+    }
+
+    @keyframes fade-in-heading {
+        0% {
+            opacity: 0%;
+            transform: translateY(-1rem);
+        }
+        50% {
+            opacity: 0%;
+            transform: translateY(-1rem);
+        }
+        100% {
+            opacity: 100%;
+            transform: translateY(0);
+        }
+    }
 `;
 
 const Subheading = styled.h2`
     margin: 0;
     margin-top: 0.625rem;
-    font-size: clamp(35px, 8vw, 55px);
+    font-size: clamp(35px, 8vw, 50px);
     font-weight: 600;
     line-height: 1.1;
     color: ${darkText};
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: fade-in-subheading 1.35s 0s ease-out;
+    }
+
+    @keyframes fade-in-subheading {
+        0% {
+            opacity: 0%;
+            transform: translateY(-1rem);
+        }
+        50% {
+            opacity: 0%;
+            transform: translateY(-1rem);
+        }
+        100% {
+            opacity: 100%;
+            transform: translateY(0);
+        }
+    }
 `;
 
 const Description = styled.p`
+    max-width: 540px;
     margin: 0;
     margin-top: 1.75rem;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: ${darkText};
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: fade-in-desc 1.7s 0s ease-out;
+    }
+
+    @keyframes fade-in-desc {
+        0% {
+            opacity: 0%;
+            transform: translateY(-1rem);
+        }
+        50% {
+            opacity: 0%;
+            transform: translateY(-1rem);
+        }
+        100% {
+            opacity: 100%;
+            transform: translateY(0);
+        }
+    }
 `;
 
 const NavMenu = styled.nav`
@@ -158,6 +193,14 @@ const Link = styled.a`
     }
 `;
 
+const DullLink = styled(Link)`
+    color: ${lightText};
+
+    &:hover::after {
+        background: ${lightText};
+    }
+`;
+
 const NavOptions = styled.div`
     display: flex;
     flex-direction: row;
@@ -167,26 +210,27 @@ const NavOptions = styled.div`
     margin-right: 40px;
 
     @media (prefers-reduced-motion: no-preference) {
-        animation: fade-in 1s 0s ease-out;
+        animation: fade-in-nav 1s 0s ease-out;
     }
 
-    @keyframes fade-in {
+    @keyframes fade-in-nav {
         0% {
-            margin-top: -50%;
+            transform: translateY(-1rem);
             opacity: 0%;
         }
         50% {
-            margin-top: 20px;
+            transform: translateY(0);
             opacity: 50%;
         }
         100% {
-            margin-top: 20px;
+            transform: translateY(0);
             opacity: 100%;
         }
     }
 `;
 
 const NavOption = styled.a`
+    height: 20px;
     display: flex:
     justify-content: center;
     align-items: center;
@@ -202,13 +246,12 @@ const NavOption = styled.a`
 const NavOptionHighlighted = styled(NavOption)`
     color: ${highlight};
     -webkit-box-shadow: inset 0px 0px 0px 1px ${highlight};
-    // border-radius: 5px;
     padding: 15px;
 
     &:hover {
         color: ${background};
         font-weight: bold;
-        background: ${highlight};
+        -webkit-box-shadow: inset 0px -50px 0px 0px ${highlight};
     }
 
     transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
@@ -261,16 +304,32 @@ const App = () => {
             </NavMenu>
             <HeadlineContainer id="headline">
                 <Headline>
-                    <Intro>Hi, my name is</Intro>
-                    <Heading>Andrew Richardson.</Heading>
+                    <Heading>
+                        <Intro>Hi, I'm </Intro> Andrew Richardson.
+                    </Heading>
                     <Subheading>
-                        Frontend developer, React expert, and Javascript
-                        extraordinaire.
+                        Frontend developer;{" "}
+                        <DullLink
+                            href="https://reactjs.org/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            React
+                        </DullLink>{" "}
+                        and{" "}
+                        <DullLink
+                            href="https://www.javascript.com/"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            Javascript
+                        </DullLink>{" "}
+                        expert.
                     </Subheading>
                     <Description>
-                        I build engaging products and inspire those around me.
-                        Most recently, I held a Frontend Software Engineer role
-                        at{" "}
+                        I build engaging products and aspire to encourage my
+                        peers.&nbsp;&nbsp;Most recently, I held a Frontend
+                        Software Engineer role at{" "}
                         <Link
                             href="https://www.tanium.com"
                             rel="noopener noreferrer"
