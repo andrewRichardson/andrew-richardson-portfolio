@@ -123,7 +123,7 @@ const HamburgerMenuOption = styled.a<{
 
 const MobileMenu = () => {
     const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
-    const matches = useMediaQuery("min-width: 850px");
+    const matches = useMediaQuery("(min-width: 850px)");
 
     const wrapperRef: any = useRef(null);
     useOutsideAlerter(wrapperRef, () => setIsBurgerMenuOpen(false));
