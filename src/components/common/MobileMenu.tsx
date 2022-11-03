@@ -8,8 +8,8 @@ import useMediaQuery from "../hooks/useMediaQuery";
 
 const HamburgerMenuContainer = styled.div<{ isOpen?: boolean }>`
     transform: translate(-2rem, 0rem);
-    font-size: 400px;
-    width: 80px;
+    font-size: 300px;
+    width: 60px;
 
     @media (min-width: 850px) {
         display: none;
@@ -74,16 +74,16 @@ const HamburgerMenuOption = styled.a<{
     isOpen?: boolean;
 }>`
     font-size: 16px;
-    padding: 25px;
-    width: 30px;
-    height: 30px;
+    padding: 20px;
+    width: 20px;
+    height: 20px;
 
     ${(props) =>
         props.isPlaceholder &&
         `
         padding: 0;
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -136,7 +136,6 @@ const MobileMenu = () => {
             <HamburgerMenu isOpen={isBurgerMenuOpen}>
                 <HamburgerMenuOption isPlaceholder isOpen={isBurgerMenuOpen}>
                     <Hamburger
-                        size={55}
                         color={highlight}
                         toggled={isBurgerMenuOpen}
                         toggle={setIsBurgerMenuOpen}

@@ -25,23 +25,16 @@ const LogoContainer = styled.a<{ size: number }>`
     justify-content: center;
     margin: 30px 10px 10px 10px;
     padding: 10px;
-    font-size: ${(props) => props.size}px;
 
     svg {
         stroke: none;
         fill: ${highlight};
-        width: 1em;
-        height: 1em;
+        width: 40px;
+        height: 40px;
     }
 
     @media (max-width: 850px) {
         margin: 0;
-        font-size: ${(props) => props.size * 1.5}px !important;
-
-        &:hover {
-            -webkit-box-shadow: inset 0px ${(props) => props.size * -2}px 0px
-                0px ${highlight} !important;
-        }
     }
 
     #logo-cursor {
@@ -96,8 +89,7 @@ const LogoContainer = styled.a<{ size: number }>`
     }
 
     &:hover {
-        -webkit-box-shadow: inset 0px ${(props) => -props.size * 1.5}px 0px 0px
-            ${highlight};
+        -webkit-box-shadow: inset 0px -60px 0px 0px ${highlight};
         svg {
             fill: ${background};
 
