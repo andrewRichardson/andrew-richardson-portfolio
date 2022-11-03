@@ -6,7 +6,7 @@ on:
 jobs:
     deploy-pages:
         name: Deploy to GH Pages
-        runs_on: ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: Check out repository
               uses: actions/checkout@v3

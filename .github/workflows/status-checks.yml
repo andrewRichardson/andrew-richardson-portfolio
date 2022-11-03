@@ -8,7 +8,7 @@ on:
 jobs:
     test:
         name: Test suite
-        runs_on: ubuntu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: Check out repository
               uses: actions/checkout@v3
