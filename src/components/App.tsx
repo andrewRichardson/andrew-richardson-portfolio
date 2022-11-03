@@ -362,7 +362,7 @@ const App = () => {
                         # Contact
                     </NavOption>
                     <NavOptionHighlighted
-                        href="/resume.pdf"
+                        href="resume.pdf"
                         rel="noopener noreferrer"
                         target="_blank"
                     >
