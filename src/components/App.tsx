@@ -102,7 +102,7 @@ const Heading = styled.h1`
 
 const Subheading = styled.h2`
     margin: 0;
-    margin-top: 0.625rem;
+    margin-top: 1.5rem;
     font-size: clamp(35px, 8vw, 50px);
     font-weight: 600;
     line-height: 1.1;
@@ -244,6 +244,8 @@ const NavOption = styled.a`
 `;
 
 const NavOptionHighlighted = styled(NavOption)`
+    width: 85px;
+    text-align: center;
     color: ${highlight};
     -webkit-box-shadow: inset 0px 0px 0px 1px ${highlight};
     padding: 15px;
@@ -270,35 +272,35 @@ const App = () => {
                         rel="noopener noreferrer"
                         target="_blank"
                     >
-                        About Me
+                        # About Me
                     </NavOption>
                     <NavOption
                         href="#"
                         rel="noopener noreferrer"
                         target="_blank"
                     >
-                        Experience
+                        # Experience
                     </NavOption>
                     <NavOption
                         href="#"
                         rel="noopener noreferrer"
                         target="_blank"
                     >
-                        Projects
+                        # Projects
                     </NavOption>
                     <NavOption
                         href="#"
                         rel="noopener noreferrer"
                         target="_blank"
                     >
-                        Contact
+                        # Contact
                     </NavOption>
                     <NavOptionHighlighted
                         href="/resume.pdf"
                         rel="noopener noreferrer"
                         target="_blank"
                     >
-                        Resume
+                        Resume ↗
                     </NavOptionHighlighted>
                 </NavOptions>
             </NavMenu>
@@ -314,6 +316,11 @@ const App = () => {
                             rel="noopener noreferrer"
                             target="_blank"
                         >
+                            <img
+                                height="35"
+                                alt="React-logo"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1920px-React-icon.svg.png"
+                            />{" "}
                             React
                         </DullLink>{" "}
                         and{" "}
@@ -322,14 +329,19 @@ const App = () => {
                             rel="noopener noreferrer"
                             target="_blank"
                         >
+                            <img
+                                height="35"
+                                alt="JavaScript-logo"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/512px-JavaScript-logo.png"
+                            />{" "}
                             Javascript
                         </DullLink>{" "}
-                        expert.
+                        connoisseur.
                     </Subheading>
                     <Description>
-                        I build engaging products and aspire to encourage my
-                        peers.&nbsp;&nbsp;Most recently, I held a Frontend
-                        Software Engineer role at{" "}
+                        I build robust, engaging products and aspire to
+                        encourage my peers.&nbsp;&nbsp;Most recently, I held a
+                        Frontend Software Engineer role at{" "}
                         <Link
                             href="https://www.tanium.com"
                             rel="noopener noreferrer"

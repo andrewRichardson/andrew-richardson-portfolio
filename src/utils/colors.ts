@@ -1,4 +1,4 @@
-export const highlight = "#ff8011";
-export const lightText = "#dde4f7";
-export const darkText = "#9ca6c5";
-export const background = "#1e293a";
+export const highlight = "#DB504A";
+export const lightText = "#E5E5E5";
+export const darkText = "#a3a3a3";
+export const background = "#2E282A";
