@@ -1,0 +1,16 @@
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    test:
+        name: Test suite
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@v2
+            - name: Install node modules
+              run: yarn install
+            - name: Run test suite
+              run: yarn test
