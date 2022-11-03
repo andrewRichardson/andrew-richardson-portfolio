@@ -18,7 +18,7 @@ const Logo = () => (
             </g>
             <g id="text839" aria-label="_">
                 <path
-                    id="path900"
+                    id="logo-cursor"
                     d="m 54.086029,144.00421 v -1.22369 h 10.202975 v 1.22369 z"
                 />
             </g>

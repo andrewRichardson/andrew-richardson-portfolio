@@ -1,13 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 import Logo from "../assets/Logo";
-import { background, highlight, lightText, darkText } from "../utils/colors";
+import {
+    background,
+    highlight,
+    lightText,
+    darkText,
+    lowlight,
+} from "../utils/colors";
 
 const MainContent = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-color: ${background};
+
+    *::selection {
+        color: ${lightText};
+        background: ${lowlight};
+    }
 `;
 
 const HeadlineContainer = styled.section`
@@ -44,16 +55,50 @@ const LogoContainer = styled.a`
         height: 40px;
     }
 
-    @media (prefers-reduced-motion: no-preference) {
-        animation: fade-in-logo 2s 0s ease-out;
+    #logo-cursor {
+        animation: blink 1s infinite 5s ease-in-out;
     }
 
-    @keyframes fade-in-logo {
+    @keyframes blink {
         0% {
-            opacity: 0%;
+            fill: ${background};
+        }
+        50% {
+            fill: ${highlight};
         }
         100% {
+            fill: ${background};
+        }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        animation: wiggle 3s 0s;
+    }
+
+    @keyframes wiggle {
+        0% {
+            opacity: 0;
+            transform: rotate(0deg);
+        }
+        50% {
+            opacity: 0;
+            transform: rotate(0deg);
+        }
+        80% {
             opacity: 100%;
+            transform: rotate(0deg);
+        }
+        85% {
+            transform: rotate(10deg);
+        }
+        90% {
+            transform: scale(150%);
+        }
+        95% {
+            transform: rotate(-10deg);
+        }
+        100% {
+            transform: rotate(0deg);
         }
     }
 
@@ -61,6 +106,10 @@ const LogoContainer = styled.a`
         -webkit-box-shadow: inset 0px -60px 0px 0px ${highlight};
         svg {
             fill: ${background};
+
+            #logo-cursor {
+                fill: ${background} !important;
+            }
         }
     }
 
@@ -81,17 +130,20 @@ const Heading = styled.h1`
     color: ${lightText};
 
     @media (prefers-reduced-motion: no-preference) {
-        animation: fade-in-heading 1s 0s ease-out;
+        animation: fade-in-heading 1.5s 0s ease-out;
     }
 
     @keyframes fade-in-heading {
         0% {
             opacity: 0%;
-            transform: translateY(-1rem);
+            transform: translateY(4rem);
         }
-        50% {
+        70% {
             opacity: 0%;
-            transform: translateY(-1rem);
+            transform: translateY(4rem);
+        }
+        80% {
+            opacity: 10%;
         }
         100% {
             opacity: 100%;
@@ -109,17 +161,20 @@ const Subheading = styled.h2`
     color: ${darkText};
 
     @media (prefers-reduced-motion: no-preference) {
-        animation: fade-in-subheading 1.35s 0s ease-out;
+        animation: fade-in-subheading 1.55s 0s ease-out;
     }
 
     @keyframes fade-in-subheading {
         0% {
             opacity: 0%;
-            transform: translateY(-1rem);
+            transform: translateY(4rem);
         }
-        50% {
+        70% {
             opacity: 0%;
-            transform: translateY(-1rem);
+            transform: translateY(4rem);
+        }
+        80% {
+            opacity: 10%;
         }
         100% {
             opacity: 100%;
@@ -136,17 +191,20 @@ const Description = styled.p`
     color: ${darkText};
 
     @media (prefers-reduced-motion: no-preference) {
-        animation: fade-in-desc 1.7s 0s ease-out;
+        animation: fade-in-desc 1.6s 0s ease-out;
     }
 
     @keyframes fade-in-desc {
         0% {
             opacity: 0%;
-            transform: translateY(-1rem);
+            transform: translateY(4rem);
         }
-        50% {
+        70% {
             opacity: 0%;
-            transform: translateY(-1rem);
+            transform: translateY(4rem);
+        }
+        80% {
+            opacity: 10%;
         }
         100% {
             opacity: 100%;
@@ -193,11 +251,22 @@ const Link = styled.a`
     }
 `;
 
-const DullLink = styled(Link)`
+const BubbleLink = styled(Link)`
     color: ${lightText};
+    transition: all 0.25s ease-in-out;
 
     &:hover::after {
         background: ${lightText};
+    }
+
+    &:hover {
+        img {
+            transform: translateY(-0.35rem);
+        }
+    }
+
+    img {
+        transition: all 0.25s ease-in-out;
     }
 `;
 
@@ -210,7 +279,7 @@ const NavOptions = styled.div`
     margin-right: 40px;
 
     @media (prefers-reduced-motion: no-preference) {
-        animation: fade-in-nav 1s 0s ease-out;
+        animation: fade-in-nav 0.75s 0s ease-out;
     }
 
     @keyframes fade-in-nav {
@@ -244,6 +313,9 @@ const NavOption = styled.a`
 `;
 
 const NavOptionHighlighted = styled(NavOption)`
+    display: flex;
+    justify-content: space-around;
+    flex-gap: 0.25rem;
     width: 85px;
     text-align: center;
     color: ${highlight};
@@ -263,33 +335,27 @@ const App = () => {
     return (
         <MainContent>
             <NavMenu>
-                <LogoContainer href="#">
+                <LogoContainer href="/">
                     <Logo />
                 </LogoContainer>
                 <NavOptions>
+                    <NavOption href="/"># About Me</NavOption>
                     <NavOption
-                        href="#"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        # About Me
-                    </NavOption>
-                    <NavOption
-                        href="#"
+                        href="https://www.linkedin.com/in/andrew-roland-richardson/"
                         rel="noopener noreferrer"
                         target="_blank"
                     >
                         # Experience
                     </NavOption>
                     <NavOption
-                        href="#"
+                        href="https://github.com/andrewRichardson"
                         rel="noopener noreferrer"
                         target="_blank"
                     >
                         # Projects
                     </NavOption>
                     <NavOption
-                        href="#"
+                        href="mailto:andyandy698@gmail.com"
                         rel="noopener noreferrer"
                         target="_blank"
                     >
@@ -311,7 +377,7 @@ const App = () => {
                     </Heading>
                     <Subheading>
                         Frontend developer;{" "}
-                        <DullLink
+                        <BubbleLink
                             href="https://reactjs.org/"
                             rel="noopener noreferrer"
                             target="_blank"
@@ -322,9 +388,9 @@ const App = () => {
                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1920px-React-icon.svg.png"
                             />{" "}
                             React
-                        </DullLink>{" "}
+                        </BubbleLink>{" "}
                         and{" "}
-                        <DullLink
+                        <BubbleLink
                             href="https://www.javascript.com/"
                             rel="noopener noreferrer"
                             target="_blank"
@@ -335,7 +401,7 @@ const App = () => {
                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/512px-JavaScript-logo.png"
                             />{" "}
                             Javascript
-                        </DullLink>{" "}
+                        </BubbleLink>{" "}
                         connoisseur.
                     </Subheading>
                     <Description>
