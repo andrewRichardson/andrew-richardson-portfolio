@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Email, Book, Info, Paper } from "../../assets";
 import { background, highlight } from "../../utils/colors";
 import useOutsideAlerter from "../hooks/useOutsideAlerter";
-import { useMediaQuery } from "@react-hook/media-query";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 const HamburgerMenuContainer = styled.div<{ isOpen?: boolean }>`
     transform: translate(-2rem, 0rem);
