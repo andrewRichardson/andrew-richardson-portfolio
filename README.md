@@ -45,7 +45,6 @@ yarn build
 
 Builds the app for production to the `build` folder.
 
-<br/>
-<br/>
+<br />
 
-_<p style="font-size: 12px">Inspired by <a href="https://brittanychiang.com/" target="_blank" rel="noopener noreferrer">brittanychiang.com</a></p>_
+_<h5 align="center">Inspired by <a href="https://brittanychiang.com/" target="_blank" rel="noopener noreferrer">brittanychiang.com</a></h5>_
