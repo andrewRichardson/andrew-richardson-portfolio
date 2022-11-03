@@ -6,6 +6,8 @@
 
 <p align="center">Personal software engineering portfolio</p>
 
+<center>![latest build](https://github.com/github/docs/actions/workflows/deploy.yml/badge.svg)</center>
+
 ## 📖 Installation
 
 To install the project, simply clone the repository, and install the required node modules with:
