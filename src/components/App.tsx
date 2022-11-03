@@ -21,15 +21,18 @@ const MainContent = styled.div`
     }
 `;
 
-const HeadlineContainer = styled.section`
+const HeadlineContainer = styled.main`
     margin: 0 auto;
     max-width: 1600px;
     padding: 0 150px;
     min-height: 100vh;
-    width: 100%;
+
+    @media (max-width: 1080px) {
+        padding: 0 100px;
+    }
 `;
 
-const Headline = styled.div`
+const Headline = styled.section`
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
@@ -117,14 +120,14 @@ const LogoContainer = styled.a`
 `;
 
 const Intro = styled.span`
-    font-size: clamp(45px, 8vw, 60px);
+    font-size: clamp(35px, 7vw, 60px);
     color: ${highlight};
     font-weight: 600;
 `;
 
 const Heading = styled.h1`
     margin: 0;
-    font-size: clamp(45px, 8vw, 60px);
+    font-size: clamp(35px, 7vw, 60px);
     font-weight: 600;
     line-height: 1.1;
     color: ${lightText};
@@ -154,8 +157,8 @@ const Heading = styled.h1`
 
 const Subheading = styled.h2`
     margin: 0;
-    margin-top: 1.5rem;
-    font-size: clamp(35px, 8vw, 50px);
+    margin-top: 2rem;
+    font-size: clamp(25px, 6vw, 50px);
     font-weight: 600;
     line-height: 1.1;
     color: ${darkText};
@@ -186,7 +189,7 @@ const Subheading = styled.h2`
 const Description = styled.p`
     max-width: 540px;
     margin: 0;
-    margin-top: 1.75rem;
+    margin-top: 2rem;
     font-size: 1.25rem;
     color: ${darkText};
 
@@ -248,15 +251,17 @@ const Link = styled.a`
     &:hover::after {
         width: 100%;
         background: ${highlight};
+        transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
     }
 `;
 
 const BubbleLink = styled(Link)`
+    font-size: clamp(25px, 6vw, 50px);
     color: ${lightText};
-    transition: all 0.25s ease-in-out;
 
     &:hover::after {
         background: ${lightText};
+        transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
     }
 
     &:hover {
