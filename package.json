@@ -21,8 +21,6 @@
     },
     "scripts": {
         "build": "react-scripts build",
-        "deploy": "gh-pages -d build",
-        "predeploy": "yarn build",
         "start": "react-scripts start",
         "test": "react-scripts test"
     },
@@ -45,7 +43,6 @@
         ]
     },
     "devDependencies": {
-        "gh-pages": "^4.0.0",
         "prettier": "^2.7.1"
     }
 }
