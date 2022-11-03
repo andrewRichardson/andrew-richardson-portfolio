@@ -2,7 +2,7 @@
 <img alt="AR_ Logo" src="./src/assets/images/ar_inverse.png" width="100" />
 </div>
 
-<h1 align="center">andrewrichardson.info</h1>
+<h1 align="center"><a href="https://www.andrewrichardson.info/" target="_blank">andrewrichardson.info</a></h1>
 
 <p align="center">Personal software engineering portfolio</p>
 
@@ -38,3 +38,8 @@ yarn build
 ```
 
 Builds the app for production to the `build` folder.
+
+<br/>
+<br/>
+
+<p style="font-size: 12px; font-style: italic">Inspired by <a href="https://brittanychiang.com/" target="_blank">brittanychiang.com</a></p>
