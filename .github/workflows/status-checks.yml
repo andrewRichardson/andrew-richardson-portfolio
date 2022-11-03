@@ -20,3 +20,17 @@ jobs:
               run: yarn install
             - name: Run test suite
               run: yarn test
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@v3
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "18"
+            - name: Install node modules
+              run: yarn install
+            - name: Build app
+              run: yarn build
