@@ -6,7 +6,7 @@
 
 <p align="center">Personal software engineering portfolio</p>
 
-## Installation
+## 📖 Installation
 
 To install the project, simply clone the repository, and install the required node modules with:
 
@@ -14,7 +14,7 @@ To install the project, simply clone the repository, and install the required no
 yarn install
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
 ```sh
 yarn start
@@ -23,11 +23,15 @@ yarn start
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+## 🧪 Running the Testing Suite
+
 ```sh
 yarn test
 ```
 
 Launches the test runner in the interactive watch mode.
+
+## 🔨 Building for Production
 
 ```sh
 yarn build
