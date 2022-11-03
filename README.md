@@ -1,5 +1,5 @@
 <div align="center">
-<img alt="AR_ Logo" src="https://github.com/andrewRichardson/andrew-richardson-portfolio/blob/main/public/ar_inverse.png?" width="100" />
+<img alt="AR_ Logo" src="./src/assets/images/ar_inverse.png" width="100" />
 </div>
 
 <h1 align="center">andrewrichardson.info</h1>
