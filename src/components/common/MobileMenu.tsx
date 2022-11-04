@@ -142,11 +142,7 @@ const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
                         <MobileMenuOption href="#about">
                             <Info />
                         </MobileMenuOption>
-                        <MobileMenuOption
-                            href="https://github.com/andrewRichardson"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
+                        <MobileMenuOption href="#experience">
                             <Book />
                         </MobileMenuOption>
                         <MobileMenuOption

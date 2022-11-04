@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useIntersection = (element: any, rootMargin: any) => {
+    return false;
     const [isVisible, setState] = useState(false);
 
     const current = element.current;
