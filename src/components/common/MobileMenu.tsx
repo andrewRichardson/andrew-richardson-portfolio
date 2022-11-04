@@ -1,13 +1,12 @@
-import { Divide as Hamburger } from "hamburger-react";
-import { useState, useRef, useEffect } from "react";
+import { Divide as MobileMenuButton } from "hamburger-react";
+import { useRef, Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
 import { Email, Book, Info, Paper } from "../../assets";
 import { background, highlight } from "../../utils/colors";
 import useOutsideAlerter from "../hooks/useOutsideAlerter";
-import useMediaQuery from "../hooks/useMediaQuery";
 
-const HamburgerMenuContainer = styled.div<{ isOpen?: boolean }>`
-    transform: translate(-2rem, 0rem);
+const MobileMenuContainer = styled.div<{ isOpen?: boolean }>`
+    transform: translate(0, 0);
     font-size: 300px;
     width: 60px;
 
@@ -18,9 +17,6 @@ const HamburgerMenuContainer = styled.div<{ isOpen?: boolean }>`
     @keyframes fade-in-hamburger {
         0% {
             opacity: 0%;
-        }
-        50% {
-            opacity: 50%;
         }
         100% {
             opacity: 100%;
@@ -46,7 +42,7 @@ const HamburgerMenuContainer = styled.div<{ isOpen?: boolean }>`
     transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
 `;
 
-const HamburgerMenu = styled.div<{ isOpen?: boolean }>`
+const MobileMenuOptions = styled.div<{ isOpen?: boolean }>`
     position: fixed;
     top: 0;
     right: 0;
@@ -69,7 +65,7 @@ const HamburgerMenu = styled.div<{ isOpen?: boolean }>`
     transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
 `;
 
-const HamburgerMenuOption = styled.a<{
+const MobileMenuOption = styled.a<{
     isPlaceholder?: boolean;
     isOpen?: boolean;
 }>`
@@ -113,7 +109,7 @@ const HamburgerMenuOption = styled.a<{
         }
         .hamburger-react > div {
             background: ${highlight} !important;
-        }
+        }setisOpen
     }
 
     * {
@@ -121,61 +117,56 @@ const HamburgerMenuOption = styled.a<{
     }
 `;
 
-const MobileMenu = () => {
-    const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
-    const matches = useMediaQuery("(min-width: 850px)");
+type MobileMenuProps = {
+    isOpen: boolean;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+};
 
+const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
     const wrapperRef: any = useRef(null);
-    useOutsideAlerter(wrapperRef, () => setIsBurgerMenuOpen(false));
+    useOutsideAlerter(wrapperRef, () => setIsOpen(false));
 
-    useEffect(() => {
-        if (matches) setIsBurgerMenuOpen(false);
-    }, [matches]);
     return (
-        <HamburgerMenuContainer isOpen={isBurgerMenuOpen} ref={wrapperRef}>
-            <HamburgerMenu isOpen={isBurgerMenuOpen}>
-                <HamburgerMenuOption isPlaceholder isOpen={isBurgerMenuOpen}>
-                    <Hamburger
+        <MobileMenuContainer isOpen={isOpen} ref={wrapperRef}>
+            <MobileMenuOptions isOpen={isOpen}>
+                <MobileMenuOption isPlaceholder isOpen={isOpen}>
+                    <MobileMenuButton
                         color={highlight}
-                        toggled={isBurgerMenuOpen}
-                        toggle={setIsBurgerMenuOpen}
+                        toggled={isOpen}
+                        toggle={setIsOpen}
                         duration={0.25}
                     />
-                </HamburgerMenuOption>
-                {isBurgerMenuOpen && (
+                </MobileMenuOption>
+                {isOpen && (
                     <>
-                        <HamburgerMenuOption
-                            href="https://www.linkedin.com/in/andrew-roland-richardson/"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
+                        <MobileMenuOption href="#about">
                             <Info />
-                        </HamburgerMenuOption>
-                        <HamburgerMenuOption
+                        </MobileMenuOption>
+                        <MobileMenuOption
                             href="https://github.com/andrewRichardson"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
                             <Book />
-                        </HamburgerMenuOption>
-                        <HamburgerMenuOption
+                        </MobileMenuOption>
+                        <MobileMenuOption
                             href="mailto:andyandy698@gmail.com"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
                             <Email />
-                        </HamburgerMenuOption>
-                        <HamburgerMenuOption
+                        </MobileMenuOption>
+                        <MobileMenuOption
                             href="resume.pdf"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
                             <Paper />
-                        </HamburgerMenuOption>
+                        </MobileMenuOption>
                     </>
                 )}
-            </HamburgerMenu>
-        </HamburgerMenuContainer>
+            </MobileMenuOptions>
+        </MobileMenuContainer>
     );
 };
 

@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: "Poppins", -apple-system, system-ui, sans-serif;
@@ -9,6 +13,7 @@ body {
     min-height: 100%;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    background: #2e282a;
 }
 
 code {
@@ -22,6 +27,28 @@ code {
 ::before,
 ::after {
     box-sizing: inherit;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #2e282a;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #4a4044;
+    border: 3px solid #2e282a;
+    border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #4a4044;
 }
 
 #root {
