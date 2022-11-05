@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import useIntersection from "../hooks/useIntersection";
+import useIntersection from "../../../hooks/useIntersection";
 
 const StyledSection = styled.section<{
     align: string;

@@ -22,6 +22,10 @@
     },
     "scripts": {
         "build": "react-scripts build",
+        "lint": "eslint src",
+        "lint:fix": "eslint src --fix",
+        "format": "prettier src --check",
+        "format:fix": "prettier src --write",
         "start": "react-scripts start",
         "test": "react-scripts test"
     },
