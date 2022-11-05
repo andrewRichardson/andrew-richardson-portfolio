@@ -45,16 +45,6 @@ const StyledHeading = styled.h1<{ align?: "left" | "right" }>`
             height: 1px;
             background: ${highlight};
         }`}
-
-    @media (max-width: 850px) {
-        width: auto;
-        ::after {
-            display: none;
-        }
-        ::before {
-            display: none;
-        }
-    }
 `;
 
 type SectionHeadingProps = {
