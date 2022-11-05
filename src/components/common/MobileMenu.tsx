@@ -142,6 +142,7 @@ const MobileMenu = ({ isOpen, setIsOpen, navList }: MobileMenuProps) => {
                     navList.map((value, index) => (
                         <MobileMenuOption
                             href={value.link}
+                            onClick={() => setIsOpen(false)}
                             key={`${value.label}-${index}`}
                             {...getLinkProps(value.anchor)}
                         >
