@@ -15,6 +15,7 @@ const HeadlineContainer = styled.div`
 
     @media (max-width: 850px) {
         min-height: calc(100vh - 92px);
+        height: calc(100vh - 92px);
     }
 `;
 
