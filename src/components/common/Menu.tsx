@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Logo } from "../../assets";
-import { highlight, background, darkText } from "../../utils/colors";
-import useMediaQuery from "../hooks/useMediaQuery";
+import { highlight, background, normalText } from "../../utils/colors";
+import useMediaQuery from "../../hooks/useMediaQuery";
 import MobileMenu from "./MobileMenu";
+import { NavigationList, getLinkProps } from "../../utils/constants";
+import Button from "./Button";
 
 const NavContainer = styled.nav<{ showNav: boolean }>`
     position: fixed;
@@ -146,7 +148,7 @@ const NavOption = styled.a`
     justify-content: center;
     align-items: center;
     margin-left: 40px;
-    color: ${darkText};
+    color: ${normalText};
     text-decoration: none;
 
     &:hover {
@@ -158,30 +160,22 @@ const NavOption = styled.a`
     }
 `;
 
-const NavOptionHighlighted = styled(NavOption)`
-    display: flex;
-    justify-content: space-around;
-    flex-gap: 0.25rem;
-    width: 85px;
-    text-align: center;
-    color: ${highlight};
-    -webkit-box-shadow: inset 0px 0px 0px 1px ${highlight};
-    padding: 15px;
+const NavOptionHighlighted = styled(Button)`
+    width: 85px !important;
+    height: 20px !important;
+    margin-left: 40px;
 
-    &:hover {
-        color: ${background};
-        font-weight: 600;
-        -webkit-box-shadow: inset 0px -50px 0px 0px ${highlight};
+    @media (prefers-reduced-motion: no-preference) {
+        animation: fade-in-nav 1s 0s ease-out;
     }
-
-    transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
 `;
 
 type NavMenuProps = {
     showNav: boolean;
+    navList: NavigationList;
 };
 
-const NavMenu = ({ showNav }: NavMenuProps) => {
+const Menu = ({ showNav, navList }: NavMenuProps) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const isMobile = useMediaQuery("(max-width: 850px)");
 
@@ -196,38 +190,35 @@ const NavMenu = ({ showNav }: NavMenuProps) => {
             </LogoContainer>
             {!isMobile ? (
                 <NavOptions>
-                    <NavOption href="#about"># About Me</NavOption>
-                    <NavOption href="#experience"># Experience</NavOption>
-                    <NavOption
-                        href="https://github.com/andrewRichardson"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        # Projects
-                    </NavOption>
-                    <NavOption
-                        href="mailto:andyandy698@gmail.com"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        # Contact
-                    </NavOption>
-                    <NavOptionHighlighted
-                        href="resume.pdf"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        Resume ↗
-                    </NavOptionHighlighted>
+                    {navList.map((value, index) =>
+                        value?.highlight ? (
+                            <NavOptionHighlighted
+                                href={value.link}
+                                key={`${value.label}-${index}`}
+                                {...getLinkProps(value.anchor)}
+                            >
+                                {value.label}
+                            </NavOptionHighlighted>
+                        ) : (
+                            <NavOption
+                                href={value.link}
+                                key={`${value.label}-${index}`}
+                                {...getLinkProps(value.anchor)}
+                            >
+                                {value.label}
+                            </NavOption>
+                        )
+                    )}
                 </NavOptions>
             ) : (
                 <MobileMenu
                     isOpen={isMobileMenuOpen}
                     setIsOpen={setIsMobileMenuOpen}
+                    navList={navList}
                 />
             )}
         </NavContainer>
     );
 };
 
-export default NavMenu;
+export default Menu;

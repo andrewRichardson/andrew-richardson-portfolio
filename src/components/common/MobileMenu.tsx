@@ -1,13 +1,13 @@
 import { Divide as MobileMenuButton } from "hamburger-react";
 import { useRef, Dispatch, SetStateAction } from "react";
 import styled from "styled-components";
-import { Email, Book, Info, Paper } from "../../assets";
 import { background, highlight } from "../../utils/colors";
-import useOutsideAlerter from "../hooks/useOutsideAlerter";
+import useOutsideAlerter from "../../hooks/useOutsideAlerter";
+import { NavigationList, getLinkProps } from "../../utils/constants";
 
 const MobileMenuContainer = styled.div<{ isOpen?: boolean }>`
     transform: translate(0, 0);
-    font-size: 300px;
+    font-size: 360px;
     width: 60px;
 
     @media (min-width: 850px) {
@@ -120,9 +120,10 @@ const MobileMenuOption = styled.a<{
 type MobileMenuProps = {
     isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+    navList: NavigationList;
 };
 
-const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
+const MobileMenu = ({ isOpen, setIsOpen, navList }: MobileMenuProps) => {
     const wrapperRef: any = useRef(null);
     useOutsideAlerter(wrapperRef, () => setIsOpen(false));
 
@@ -137,30 +138,16 @@ const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
                         duration={0.25}
                     />
                 </MobileMenuOption>
-                {isOpen && (
-                    <>
-                        <MobileMenuOption href="#about">
-                            <Info />
-                        </MobileMenuOption>
-                        <MobileMenuOption href="#experience">
-                            <Book />
-                        </MobileMenuOption>
+                {isOpen &&
+                    navList.map((value, index) => (
                         <MobileMenuOption
-                            href="mailto:andyandy698@gmail.com"
-                            rel="noopener noreferrer"
-                            target="_blank"
+                            href={value.link}
+                            key={`${value.label}-${index}`}
+                            {...getLinkProps(value.anchor)}
                         >
-                            <Email />
+                            {value.icon}
                         </MobileMenuOption>
-                        <MobileMenuOption
-                            href="resume.pdf"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        >
-                            <Paper />
-                        </MobileMenuOption>
-                    </>
-                )}
+                    ))}
             </MobileMenuOptions>
         </MobileMenuContainer>
     );

@@ -1,6 +1,6 @@
 import React, { ReactNode, useMemo } from "react";
 import styled from "styled-components";
-import { darkText, highlight, lightText } from "../../utils/colors";
+import { normalText, highlight } from "../../utils/colors";
 
 export type ListObject = {
     list: ReactNode[];
@@ -20,6 +20,10 @@ const ListContainer = styled.div`
 
 const ColumnContainer = styled.ul`
     padding: 0 40px 0 0;
+
+    @media (max-width: 850px) {
+        padding: 0 15px 0 0;
+    }
 `;
 
 const ListItem = styled.li<{ listType: ListType }>`
@@ -28,7 +32,7 @@ const ListItem = styled.li<{ listType: ListType }>`
     margin: 10px 0;
     list-style: none;
     font-weight: 400;
-    color: ${darkText};
+    color: ${normalText};
 
     ${(props) =>
         props.listType === "bulleted" &&
@@ -47,7 +51,7 @@ const ListItem = styled.li<{ listType: ListType }>`
 const ListTitle = styled.h2`
     font-size: 1rem;
     font-weight: 600;
-    color: ${lightText};
+    color: ${highlight};
 `;
 
 type ListProps = {

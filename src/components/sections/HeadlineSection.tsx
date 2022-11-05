@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { highlight, lightText, darkText } from "../../utils/colors";
+import { darkText, highlight, lightText, normalText } from "../../utils/colors";
 import IconLink from "../common/IconLink";
 import Link from "../common/Link";
-import Section from "./Section";
+import { Section } from "../common/section";
 
 const HeadlineContainer = styled.div`
     min-height: 100vh;
@@ -60,7 +60,7 @@ const Subheading = styled.h2`
     font-size: clamp(25px, 6vw, 50px);
     font-weight: 600;
     line-height: 1.1;
-    color: ${darkText};
+    color: ${normalText};
 
     @media (prefers-reduced-motion: no-preference) {
         animation: fade-in-headline 1.55s 0s ease-out;
