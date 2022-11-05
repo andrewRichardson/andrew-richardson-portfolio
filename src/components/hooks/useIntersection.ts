@@ -1,26 +1,26 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 const useIntersection = (element: any, rootMargin: any) => {
     return false;
-    const [isVisible, setState] = useState(false);
+    // const [isVisible, setState] = useState(false);
 
-    const current = element.current;
+    // const current = element.current;
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                setState(entry.isIntersecting);
-            },
-            { rootMargin }
-        );
+    // useEffect(() => {
+    //     const observer = new IntersectionObserver(
+    //         ([entry]) => {
+    //             setState(entry.isIntersecting);
+    //         },
+    //         { rootMargin }
+    //     );
 
-        current && observer.observe(current);
+    //     current && observer.observe(current);
 
-        return () => observer.unobserve(current);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    //     return () => observer.unobserve(current);
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
-    return isVisible;
+    // return isVisible;
 };
 
 export default useIntersection;
