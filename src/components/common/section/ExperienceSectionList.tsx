@@ -113,7 +113,7 @@ const ExperienceSectionList = ({
             <ListDates>{experience.dates}</ListDates>
             <List>
                 {experience.bullets.map((value) => (
-                    <ListItem>{value}</ListItem>
+                    <ListItem key={value}>{value}</ListItem>
                 ))}
             </List>
         </AnimatedExperienceContent>
