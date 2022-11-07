@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { background, lightText, lowlight } from "../utils/colors";
 import HeadlineSection from "./sections/HeadlineSection";
-import { Email, Book, Info, Paper, Folder } from "../assets";
+import { Email, Book, Info, Folder } from "../assets";
 import Menu from "./common/Menu";
 import AboutSection from "./sections/AboutSection";
 import ExperienceSection from "./sections/ExperienceSection";
-import ProjectsSection from "./sections/ProjectsSection";
+// import ProjectsSection from "./sections/ProjectsSection";
 import ContactSection from "./sections/ContactSection";
 
 const Content = styled.div`
@@ -58,12 +58,12 @@ const NAVIGATION_LIST = [
         icon: <Book />,
         anchor: true,
     },
-    {
-        label: "# Projects",
-        link: "#projects",
-        icon: <Paper />,
-        anchor: true,
-    },
+    // {
+    //     label: "# Projects",
+    //     link: "#projects",
+    //     icon: <Paper />,
+    //     anchor: true,
+    // },
     {
         label: "# Contact",
         link: "#contact",
@@ -114,7 +114,7 @@ const App = () => {
                 <HeadlineSection />
                 <AboutSection />
                 <ExperienceSection />
-                <ProjectsSection />
+                {/* <ProjectsSection /> */}
                 <ContactSection />
             </Main>
         </Content>
