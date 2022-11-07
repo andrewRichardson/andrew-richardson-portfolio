@@ -8,6 +8,7 @@ import AboutSection from "./sections/AboutSection";
 import ExperienceSection from "./sections/ExperienceSection";
 // import ProjectsSection from "./sections/ProjectsSection";
 import ContactSection from "./sections/ContactSection";
+import Footer from "./common/Footer";
 
 const Content = styled.div`
     display: flex;
@@ -117,6 +118,7 @@ const App = () => {
                 {/* <ProjectsSection /> */}
                 <ContactSection />
             </Main>
+            <Footer />
         </Content>
     );
 };

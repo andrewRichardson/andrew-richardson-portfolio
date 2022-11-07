@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Logo } from "../../assets";
-import { highlight, background, normalText } from "../../utils/colors";
+import {
+    highlight,
+    background,
+    normalText,
+    darkBackground,
+} from "../../utils/colors";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import MobileMenu from "./MobileMenu";
 import { NavigationList, getLinkProps } from "../../utils/constants";
@@ -18,7 +23,7 @@ const NavContainer = styled.nav<{ showNav: boolean }>`
     padding: 0 30px;
     background: ${background};
     z-index: 1000;
-    -webkit-box-shadow: 0px 25px 25px 5px ${background};
+    -webkit-box-shadow: 0px 10px 30px -10px ${darkBackground};
 
     ${(props) =>
         !props.showNav &&
@@ -31,6 +36,7 @@ const NavContainer = styled.nav<{ showNav: boolean }>`
         margin: 0;
         padding: 1rem;
         position: relative;
+        -webkit-box-shadow: none;
     }
 
     transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);

@@ -23,7 +23,7 @@ const Headshot = styled.img`
     height: 300px;
     object-fit: cover;
 
-    box-shadow: 0 0 0 5px ${background}, 0 0 0 6px #555;
+    -webkit-box-shadow: 0 0 0 5px ${background}, 0 0 0 6px #555;
 
     @media (max-width: 850px) {
         display: none;
@@ -32,16 +32,16 @@ const Headshot = styled.img`
 
 const SKILLS = [
     {
-        title: "Languages",
-        list: ["React", "JavaScript (ES6+)", "TypeScript", "Node.js"],
+        title: "Languages & Libraries",
+        list: ["React", "JavaScript (ES6+)", "TypeScript", "CSS", "Node.js"],
     },
     {
         title: "Design",
-        list: ["Storybook", "Figma"],
+        list: ["Storybook", "Figma", "Photoshop"],
     },
     {
         title: "Infra & Testing",
-        list: ["GitHub Actions", "Jest", "Cypress"],
+        list: ["GitHub Actions", "Jest", "Cypress", "Webpack", "Husky"],
     },
 ];
 

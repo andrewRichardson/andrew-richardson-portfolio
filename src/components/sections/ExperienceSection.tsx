@@ -78,13 +78,12 @@ const ListContainer = styled.div`
 `;
 
 const ListLabelContainer = styled.div`
-    display: flex;
-    flex-direction: column;
     margin-right: 1rem;
-    width: 100%;
 
     @media (max-width: 750px) {
+        width: 100%;
         margin: 0 0 2rem 0;
+        display: flex;
         flex-direction: row;
         overflow-x: scroll;
     }
@@ -99,7 +98,7 @@ const Label = styled.div<{ highlight?: boolean }>`
     cursor: pointer;
     height: 1.25rem;
 
-    box-shadow: inset 2px 0 0 0 ${lightBackground};
+    -webkit-box-shadow: inset 2px 0 0 0 ${lightBackground};
 
     code {
         pointer-events: none;
@@ -120,7 +119,7 @@ const Label = styled.div<{ highlight?: boolean }>`
         text-align: center;
         width: 80px;
         padding: 1rem 1.5rem;
-        box-shadow: inset 0 -2px 0 0 ${lightBackground};
+        -webkit-box-shadow: inset 0 -2px 0 0 ${lightBackground};
     }
 
     ${(props) =>
@@ -132,7 +131,7 @@ const Label = styled.div<{ highlight?: boolean }>`
         background: ${lowlight};
 
         @media (max-width: 750px) {
-            box-shadow: inset 0 -2px 0 0 ${highlight};
+            -webkit-box-shadow: inset 0 -2px 0 0 ${highlight};
         }
     `}
 

@@ -44,10 +44,11 @@ const ContactSection = () => {
                         all general questions as well!
                     </StyledSectionDescription>
                     <ContactButton
-                        href="mailto:andyandy698@gmail.com"
+                        href="mailto:andyandy698@gmail.com?subject=Contact - andrewrichardson.info"
+                        target="_top"
                         width="125px"
                     >
-                        <code>@ Email</code>
+                        <code>Contact</code>
                     </ContactButton>
                 </StyledSectionContent>
             </SectionContainer>
