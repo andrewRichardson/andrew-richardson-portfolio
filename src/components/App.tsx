@@ -47,7 +47,7 @@ const Main = styled.main`
 
 const NAVIGATION_LIST = [
     {
-        label: "# About Me",
+        label: "# About",
         link: "#about",
         icon: <Info />,
         anchor: true,
@@ -65,7 +65,7 @@ const NAVIGATION_LIST = [
         anchor: true,
     },
     {
-        label: "# Contact Me",
+        label: "# Contact",
         link: "#contact",
         icon: <Email />,
         anchor: true,
