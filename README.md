@@ -2,7 +2,7 @@
 <img alt="AR_ Logo" src="./src/assets/images/ar_inverse.png" width="100" />
 </div>
 
-<h1 align="center"><a href="https://andrewrichardson.github.io/andrew-richardson-portfolio/" target="_blank" rel="noopener noreferrer">andrewrichardson.github.io/andrew-richardson-portfolio</a></h1>
+<h1 align="center"><a href="https://andrewrichardson.info" target="_blank" rel="noopener noreferrer">andrewrichardson.info</a></h1>
 
 <p align="center">Personal software engineering portfolio</p>
 
