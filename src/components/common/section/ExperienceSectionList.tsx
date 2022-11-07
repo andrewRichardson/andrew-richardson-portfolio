@@ -14,9 +14,9 @@ const List = styled.ul`
 const ListItem = styled.li`
     position: relative;
     padding-left: 20px;
-    margin: 0 0 30px 0;
+    margin: 0 0 20px 0;
     list-style: none;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 400;
     color: ${darkText};
 
