@@ -13,13 +13,10 @@ const ProjectsSection = () => {
                 <SectionContent>
                     <SectionHeading># Projects</SectionHeading>
                     <SectionDescription>
-                        <code>Postscript Design System</code>
+                        <code>Emoji Design System @ Postscript</code>
                     </SectionDescription>
                     <SectionDescription>
-                        <code>Robot Vacuum Simulator</code>
-                    </SectionDescription>
-                    <SectionDescription>
-                        <code>Portfolio</code>
+                        <code>Frontend Guild @ Postscript & Asurion</code>
                     </SectionDescription>
                 </SectionContent>
             </SectionContainer>
