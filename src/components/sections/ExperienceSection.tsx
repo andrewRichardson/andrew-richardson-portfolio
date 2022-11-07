@@ -70,11 +70,24 @@ const ListContainer = styled.div`
     align-items: flex-start;
     font-size: 1rem;
     margin-top: 2rem;
+    min-height: 350px;
+
+    @media (max-width: 750px) {
+        flex-direction: column;
+    }
 `;
 
 const ListLabelContainer = styled.div`
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin-right: 1rem;
+    width: 100%;
+
+    @media (max-width: 750px) {
+        margin: 0 0 2rem 0;
+        flex-direction: row;
+        overflow-x: scroll;
+    }
 `;
 
 const Label = styled.div<{ highlight?: boolean }>`
@@ -101,6 +114,15 @@ const Label = styled.div<{ highlight?: boolean }>`
         background: ${lowlight};
     }
 
+    @media (max-width: 750px) {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 80px;
+        padding: 1rem 1.5rem;
+        box-shadow: inset 0 -2px 0 0 ${lightBackground};
+    }
+
     ${(props) =>
         props.highlight &&
         `
@@ -108,6 +130,10 @@ const Label = styled.div<{ highlight?: boolean }>`
             color: ${highlight} !important;
         }
         background: ${lowlight};
+
+        @media (max-width: 750px) {
+            box-shadow: inset 0 -2px 0 0 ${highlight};
+        }
     `}
 
     transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
@@ -121,6 +147,10 @@ const ListLabelTab = styled.div<{ keyIndex: number }>`
     border-radius: 5px;
     background: ${highlight};
     transform: translateY(calc(${(props) => props.keyIndex} * 52px));
+
+    @media (max-width: 750px) {
+        display: none;
+    }
 
     transition: transform 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
 `;
