@@ -115,6 +115,7 @@ const App = () => {
                 <HeadlineSection />
                 <AboutSection />
                 <ExperienceSection />
+                {/* TO-DO: Add projects sections */}
                 {/* <ProjectsSection /> */}
                 <ContactSection />
             </Main>
