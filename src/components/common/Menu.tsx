@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Logo } from "../../assets";
-import {
-    highlight,
-    background,
-    normalText,
-    darkBackground,
-} from "../../utils/colors";
+import { highlight, background, normalText } from "../../utils/colors";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import MobileMenu from "./MobileMenu";
 import { NavigationList, getLinkProps } from "../../utils/constants";
@@ -23,7 +18,7 @@ const NavContainer = styled.nav<{ showNav: boolean }>`
     padding: 0 30px;
     background: ${background};
     z-index: 1000;
-    -webkit-box-shadow: 0px 10px 30px -10px ${darkBackground};
+    -webkit-box-shadow: 0px 10px 30px -10px ${background};
 
     ${(props) =>
         !props.showNav &&
