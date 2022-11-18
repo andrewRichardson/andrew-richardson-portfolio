@@ -12,6 +12,6 @@ jest.mock("../hooks/useIntersection", () => {
 
 test("renders Andrew Richardson", () => {
     render(<App />);
-    const arElement = screen.getByText(/Andrew Richardson/i);
+    const arElement = screen.getAllByText(/Andrew Richardson/i)?.[0];
     expect(arElement).toBeInTheDocument();
 });
