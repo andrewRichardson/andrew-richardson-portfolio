@@ -37,11 +37,12 @@ const ContactSection = () => {
                     </SectionHeading>
                     <StyledSectionDescription>
                         <LightText>
-                            I am actively looking for a new role!
+                            I am always eager to discuss anything software or
+                            product!
                         </LightText>
-                        &nbsp;&nbsp;Please send any job descriptions or
-                        inquiries to my email below. Feel free to ask any and
-                        all general questions as well!
+                        &nbsp;&nbsp;Please send any job inquiries to my email
+                        below. Feel free to ask any and all general questions as
+                        well!
                     </StyledSectionDescription>
                     <ContactButton
                         href="mailto:andyandy698@gmail.com?subject=Contact - andrewrichardson.info"

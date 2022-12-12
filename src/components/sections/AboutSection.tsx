@@ -58,9 +58,9 @@ const AboutSection = () => {
                     </SectionDescription>
                     <SectionDescription>
                         I have four total years of experience as an engineer; I
-                        have three years experience working on Frontend
-                        development with an additional years experience working
-                        on Mobile Apps and true Full Stack development.
+                        have three years experience working on Frontend/Full
+                        Stack development with an additional years experience
+                        working on Mobile App development.
                     </SectionDescription>
                     <SectionDescription>
                         Recently, the technologies and frameworks I have been
