@@ -14,7 +14,7 @@ const ScrollPromptContainer = styled.div<{ showNav: boolean }>`
     margin: 0;
     background: ${background};
     z-index: 1000;
-    opacity: 50%;
+    opacity: 0%;
     bottom: 5rem;
     right: 5rem;
 
@@ -24,10 +24,11 @@ const ScrollPromptContainer = styled.div<{ showNav: boolean }>`
         display: none;
     `}
 
-    animation: bounce infinite 2.5s ease-in-out;
+    animation: bounce 4s infinite 2.5s ease-in-out;
 
     @keyframes bounce {
         0% {
+            opacity: 50%;
             bottom: 5rem;
         }
         35% {
@@ -50,6 +51,7 @@ const ScrollPromptContainer = styled.div<{ showNav: boolean }>`
         }
         100% {
             bottom: 5rem;
+            opacity: 50%;
         }
     }
 
