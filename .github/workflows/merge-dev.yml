@@ -28,4 +28,4 @@ jobs:
                   git config --global user.name 'Andrew Richardson'
                   git config --global user.email 'andrewRichardson@users.noreply.github.com'
                   git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-                  git push origin/main
+                  git push origin main
