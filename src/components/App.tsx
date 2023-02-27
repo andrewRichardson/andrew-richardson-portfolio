@@ -9,6 +9,7 @@ import ExperienceSection from "./sections/ExperienceSection";
 // import ProjectsSection from "./sections/ProjectsSection";
 import ContactSection from "./sections/ContactSection";
 import Footer from "./common/Footer";
+import ScrollPrompt from "./common/ScrollPrompt";
 
 const Content = styled.div`
     display: flex;
@@ -119,6 +120,7 @@ const App = () => {
                 {/* <ProjectsSection /> */}
                 <ContactSection />
             </Main>
+            <ScrollPrompt showNav={showNav} />
             <Footer />
         </Content>
     );

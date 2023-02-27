@@ -12,8 +12,19 @@ import ExperienceSectionList, {
     Experience,
 } from "../common/section/ExperienceSectionList";
 
-const EXPERIENCE_LIST: Record<string, Experience> = {
-    tanium: {
+const EXPERIENCE_LIST: Experience[] = [
+    {
+        id: "asurion2",
+        title: "Senior Software Engineer",
+        company: "Asurion",
+        bullets: [
+            "Senior engineer on the Asurion.com team",
+            "Manage the entire public-facing Asurion marketing website",
+        ],
+        dates: "January 2023 - Present",
+    },
+    {
+        id: "tanium",
         title: "Software Engineer (Frontend)",
         company: "Tanium",
         bullets: [
@@ -23,7 +34,8 @@ const EXPERIENCE_LIST: Record<string, Experience> = {
         ],
         dates: "February - November 2022",
     },
-    postscript: {
+    {
+        id: "postscript",
         title: "Frontend Engineer",
         company: "Postscript",
         bullets: [
@@ -33,8 +45,9 @@ const EXPERIENCE_LIST: Record<string, Experience> = {
         ],
         dates: "June 2021 - February 2022",
     },
-    asurion: {
-        title: "Full Stack Software Engineer",
+    {
+        id: "asurion",
+        title: "Software Engineer",
         company: "Asurion",
         bullets: [
             "Helped establish a team of eight engineers to build a Wi-Fi diagnostic service",
@@ -43,7 +56,8 @@ const EXPERIENCE_LIST: Record<string, Experience> = {
         ],
         dates: "January 2020 - June 2021",
     },
-    amazon: {
+    {
+        id: "amazon",
         title: "Software Development Engineer Intern",
         company: "Amazon",
         bullets: [
@@ -52,7 +66,8 @@ const EXPERIENCE_LIST: Record<string, Experience> = {
         ],
         dates: "May - August 2019",
     },
-    heal: {
+    {
+        id: "heal",
         title: "React Native Software Engineer",
         company: "Healthware Consortium",
         bullets: [
@@ -61,7 +76,7 @@ const EXPERIENCE_LIST: Record<string, Experience> = {
         ],
         dates: "May 2018 - May 2019",
     },
-};
+];
 
 const ListContainer = styled.div`
     width: 100%;
@@ -70,7 +85,7 @@ const ListContainer = styled.div`
     align-items: flex-start;
     font-size: 1rem;
     margin-top: 2rem;
-    min-height: 350px;
+    min-height: 400px;
 
     @media (max-width: 750px) {
         flex-direction: column;
@@ -156,11 +171,11 @@ const ListLabelTab = styled.div<{ keyIndex: number }>`
 `;
 
 const ExperienceSection = () => {
-    const [currentKey, setCurrentKey] = useState("tanium");
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [shouldFadeOut, setShouldFadeOut] = useState(false);
 
-    const changeKey = (newKey: string) => {
-        setCurrentKey(newKey);
+    const changeIndex = (newIndex: number) => {
+        setCurrentIndex(newIndex);
         setShouldFadeOut(true);
         setTimeout(() => {
             setShouldFadeOut(false);
@@ -174,44 +189,19 @@ const ExperienceSection = () => {
                     <SectionHeading align="right"># Experience</SectionHeading>
                     <ListContainer>
                         <ListLabelContainer>
-                            <ListLabelTab
-                                keyIndex={Object.keys(EXPERIENCE_LIST).indexOf(
-                                    currentKey
-                                )}
-                            />
-                            <Label
-                                highlight={currentKey === "tanium"}
-                                onClick={() => changeKey("tanium")}
-                            >
-                                <SectionCode>Tanium</SectionCode>
-                            </Label>
-                            <Label
-                                highlight={currentKey === "postscript"}
-                                onClick={() => changeKey("postscript")}
-                            >
-                                <SectionCode>Postscript</SectionCode>
-                            </Label>
-                            <Label
-                                highlight={currentKey === "asurion"}
-                                onClick={() => changeKey("asurion")}
-                            >
-                                <SectionCode>Asurion</SectionCode>
-                            </Label>
-                            <Label
-                                highlight={currentKey === "amazon"}
-                                onClick={() => changeKey("amazon")}
-                            >
-                                <SectionCode>Amazon</SectionCode>
-                            </Label>
-                            <Label
-                                highlight={currentKey === "heal"}
-                                onClick={() => changeKey("heal")}
-                            >
-                                <SectionCode>Healthware Consortium</SectionCode>
-                            </Label>
+                            <ListLabelTab keyIndex={currentIndex} />
+                            {EXPERIENCE_LIST.map((value, index) => (
+                                <Label
+                                    highlight={currentIndex === index}
+                                    onClick={() => changeIndex(index)}
+                                    key={`${value.id}`}
+                                >
+                                    <SectionCode>{value.company}</SectionCode>
+                                </Label>
+                            ))}
                         </ListLabelContainer>
                         <ExperienceSectionList
-                            experience={EXPERIENCE_LIST[currentKey]}
+                            experience={EXPERIENCE_LIST[currentIndex]}
                             shouldFadeOut={shouldFadeOut}
                         />
                     </ListContainer>

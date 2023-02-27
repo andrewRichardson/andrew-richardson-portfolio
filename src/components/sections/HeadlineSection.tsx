@@ -88,7 +88,7 @@ const HeadlineSection = () => {
                     <Intro>Hi, I'm </Intro> Andrew Richardson.
                 </Heading>
                 <Subheading>
-                    Frontend developer;{" "}
+                    Software engineer;{" "}
                     <IconLink
                         href="https://reactjs.org/"
                         icon={
@@ -103,24 +103,24 @@ const HeadlineSection = () => {
                     </IconLink>{" "}
                     and{" "}
                     <IconLink
-                        href="https://www.javascript.com/"
+                        href="https://www.typescriptlang.org/"
                         icon={
                             <img
                                 height="35"
-                                alt="JavaScript-logo"
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/512px-JavaScript-logo.png"
+                                alt="TypeScript-logo"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/512px-Typescript.svg.png"
                             />
                         }
                     >
-                        Javascript
+                        TypeScript
                     </IconLink>{" "}
                     connoisseur.
                 </Subheading>
                 <Description>
                     I build robust, engaging products and aspire to encourage my
-                    peers.&nbsp;&nbsp;Most recently, I held a Frontend Software
-                    Engineer role at{" "}
-                    <Link href="https://www.tanium.com">Tanium</Link>.
+                    peers.&nbsp;&nbsp;Currently, I am a Senior Software
+                    Engineer at{" "}
+                    <Link href="https://www.asurion.com">Asurion</Link>.
                 </Description>
             </HeadlineContainer>
         </Section>
