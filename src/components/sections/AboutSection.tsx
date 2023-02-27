@@ -53,7 +53,7 @@ const AboutSection = () => {
                     <SectionHeading># About me</SectionHeading>
                     <SectionDescription>
                         I am a product, leadership, and customer focused
-                        Frontend Software Engineer with a passion for making
+                        Software Engineer with a passion for making
                         things.
                     </SectionDescription>
                     <SectionDescription>
