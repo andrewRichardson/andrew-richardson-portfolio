@@ -38,7 +38,8 @@ const ListTitle = styled.h2`
 
 const ListDates = styled.code`
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    font-style: italic;
     color: ${darkText};
 `;
 
@@ -49,6 +50,8 @@ const ListCompany = styled.span`
 const AnimatedExperienceContent = styled.div<{
     fadeOut?: boolean;
 }>`
+    width: 100%;
+
     @keyframes fade-in-exp-list {
         0% {
             opacity: 0%;
@@ -89,6 +92,7 @@ const AnimatedExperienceContent = styled.div<{
 `;
 
 export type Experience = {
+    id: string;
     title: string;
     company: string;
     bullets: string[];
