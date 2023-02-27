@@ -1,17 +1,7 @@
 name: Merge dev
 
 on:
-    push:
-        branches: ["dev"]
-
-permissions:
-    contents: read
-    pages: write
-    id-token: write
-
-concurrency:
-    group: "pages"
-    cancel-in-progress: true
+    workflow_dispatch:
 
 jobs:
     merge-dev:
