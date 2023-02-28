@@ -15,8 +15,8 @@ const ScrollPromptContainer = styled.div<{ showNav: boolean }>`
     background: ${background};
     z-index: 1000;
     opacity: 0%;
-    bottom: 5rem;
-    right: 5rem;
+    bottom: 4rem;
+    right: 4rem;
 
     ${(props) =>
         !props.showNav &&
@@ -29,28 +29,28 @@ const ScrollPromptContainer = styled.div<{ showNav: boolean }>`
     @keyframes bounce {
         0% {
             opacity: 50%;
-            bottom: 5rem;
+            bottom: 4rem;
         }
         35% {
-            bottom: 5rem;
+            bottom: 4rem;
         }
         40% {
-            bottom: 6rem;
+            bottom: 5rem;
         }
         45% {
-            bottom: 5rem;
+            bottom: 4rem;
         }
         50% {
-            bottom: 5rem;
+            bottom: 4rem;
         }
         55% {
-            bottom: 6rem;
+            bottom: 5rem;
         }
         60% {
-            bottom: 5rem;
+            bottom: 4rem;
         }
         100% {
-            bottom: 5rem;
+            bottom: 4rem;
             opacity: 50%;
         }
     }

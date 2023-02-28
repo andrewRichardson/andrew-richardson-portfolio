@@ -13,9 +13,17 @@ const useIntersection = (element: { current: any }, rootMargin: any) => {
             { rootMargin },
         );
 
-        element.current && observer.observe(element.current);
+        try {
+            if (element.current) {
+                observer.observe(element.current);
 
-        return () => observer.unobserve(element.current);
+                return () => observer.unobserve(element.current);
+            }
+        } catch (e) {
+            console.log(e);
+        }
+
+        return () => {};
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
