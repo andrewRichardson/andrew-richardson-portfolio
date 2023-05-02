@@ -119,7 +119,8 @@ const HeadlineSection = () => {
                 <Description>
                     I build robust, engaging products and aspire to encourage my
                     peers.&nbsp;&nbsp;Currently, I am a Senior Software Engineer
-                    at <Link href="https://www.asurion.com">Asurion</Link>.
+                    & Tech Lead at{" "}
+                    <Link href="https://www.asurion.com">Asurion</Link>.
                 </Description>
             </HeadlineContainer>
         </Section>

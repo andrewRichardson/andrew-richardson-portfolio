@@ -15,10 +15,10 @@ import ExperienceSectionList, {
 const EXPERIENCE_LIST: Experience[] = [
     {
         id: "asurion2",
-        title: "Senior Software Engineer",
+        title: "Senior Software Engineer, Tech Lead",
         company: "Asurion",
         bullets: [
-            "Senior engineer on the Asurion.com team",
+            "Senior engineer and Tech Lead for the Asurion.com team",
             "Manage the entire public-facing Asurion marketing website",
         ],
         dates: "January 2023 - Present",
