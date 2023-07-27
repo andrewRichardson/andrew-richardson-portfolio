@@ -80,7 +80,7 @@ const List = ({ list, listType = "bulleted", columnSize }: ListProps) => {
             columnSize && list.length === 1
                 ? getColumns(list[0], columnSize)
                 : list,
-        [list, columnSize]
+        [list, columnSize],
     );
 
     return (

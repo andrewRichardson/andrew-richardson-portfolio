@@ -208,7 +208,7 @@ const Menu = ({ showNav, navList }: NavMenuProps) => {
                             >
                                 {value.label}
                             </NavOption>
-                        )
+                        ),
                     )}
                 </NavOptions>
             ) : (
