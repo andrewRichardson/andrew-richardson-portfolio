@@ -23,7 +23,9 @@ const Headshot = styled.img`
     height: 300px;
     object-fit: cover;
 
-    -webkit-box-shadow: 0 0 0 5px ${background}, 0 0 0 6px #555;
+    -webkit-box-shadow:
+        0 0 0 5px ${background},
+        0 0 0 6px #555;
 
     @media (max-width: 850px) {
         display: none;
