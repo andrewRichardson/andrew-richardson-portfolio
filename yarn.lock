@@ -2324,10 +2324,10 @@
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-3.0.1.tgz#5f8f2bca0a5863cb69bc0b0acd88c96cb1d4ae10"
   integrity sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==
 
-"@types/node@*", "@types/node@^20.4.5":
-  version "20.4.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.5.tgz#9dc0a5cb1ccce4f7a731660935ab70b9c00a5d69"
-  integrity sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==
+"@types/node@*", "@types/node@^20.4.9":
+  version "20.4.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.9.tgz#c7164e0f8d3f12dfae336af0b1f7fdec8c6b204f"
+  integrity sha512-8e2HYcg7ohnTUbHk8focoklEQYvemQmu9M/f43DZVx43kHn0tE3BY/6gSDxS7k0SprtS0NHvj+L80cGLnoOUcQ==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -2366,10 +2366,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.2.17":
-  version "18.2.17"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.17.tgz#baa565b17ddb649c2dac85b5eaf9e9a1fe0f3b4e"
-  integrity sha512-u+e7OlgPPh+aryjOm5UJMX32OvB2E3QASOAqVMY6Ahs90djagxwv2ya0IctglNbNTexC12qCSMZG47KPfy1hAA==
+"@types/react@*", "@types/react@^18.2.18":
+  version "18.2.18"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.18.tgz#c8b233919eef1bdc294f6f34b37f9727ad677516"
+  integrity sha512-da4NTSeBv/P34xoZPhtcLkmZuJ+oYaCxHmyHzwaDQo9RQPBeXV+06gEk2FpqEcsX9XrnNLvRpVh6bdavDSjtiQ==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -7687,10 +7687,10 @@ prelude-ls@~1.1.2:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==
 
-prettier@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.0.0.tgz#e7b19f691245a21d618c68bc54dc06122f6105ae"
-  integrity sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==
+prettier@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.0.1.tgz#65271fc9320ce4913c57747a70ce635b30beaa40"
+  integrity sha512-fcOWSnnpCrovBsmFZIGIy9UqK2FaI7Hqax+DIO0A9UxeVoY4iweyaFjS5TavZN97Hfehph0nhsZnjlVKzEQSrQ==
 
 pretty-bytes@^5.3.0, pretty-bytes@^5.4.1:
   version "5.6.0"
@@ -8719,10 +8719,10 @@ style-loader@^3.3.1:
   resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-3.3.1.tgz#057dfa6b3d4d7c7064462830f9113ed417d38575"
   integrity sha512-GPcQ+LDJbrcxHORTRes6Jy2sfvK2kS6hpSfI/fXhPt+spVzxF6LJ1dHLN9zIGmVaaP044YKaIatFaufENRiDoQ==
 
-styled-components@^6.0.5:
-  version "6.0.5"
-  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.0.5.tgz#a2588432507a57d946bfb6feb2ebd13fce447bd9"
-  integrity sha512-308zi5o7LrA9cVaP4nPD0TaUpOjGPePkAUFb/OGB0xRI3I9ozpW5UyASvRVi9wJcYASG+Y3mLDLDUZC7nqzimw==
+styled-components@^6.0.7:
+  version "6.0.7"
+  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.0.7.tgz#1cf4a5e6b6181b29f941934df54af19b7ef05ab0"
+  integrity sha512-xIwWuiRMYR43mskVsW9MGTRjSo7ol4bcVjT595fGUp3OLBJOlOgaiKaxsHdC4a2HqWKqKnh0CmcRbk5ogyDjTg==
   dependencies:
     "@babel/cli" "^7.21.0"
     "@babel/core" "^7.21.0"
