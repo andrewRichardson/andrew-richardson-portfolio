@@ -8,75 +8,8 @@ import {
     SectionHeading,
     Section,
 } from "../common/section";
-import ExperienceSectionList, {
-    Experience,
-} from "../common/section/ExperienceSectionList";
-
-const EXPERIENCE_LIST: Experience[] = [
-    {
-        id: "asurion2",
-        title: "Senior Software Engineer, Tech Lead",
-        company: "Asurion",
-        bullets: [
-            "Senior engineer and Tech Lead for the Asurion.com team",
-            "Manage the entire public-facing Asurion marketing website",
-        ],
-        dates: "January 2023 - Present",
-    },
-    {
-        id: "tanium",
-        title: "Software Engineer (Frontend)",
-        company: "Tanium",
-        bullets: [
-            "Co-led a team to create customizable executive reports built with Typescript, React, Node.js, Webpack, and Go",
-            "Led technical design process and created an MVP that was pitched to leadership and approved for production",
-            "Co-managed team and led development from initial development to QA to production",
-        ],
-        dates: "February - November 2022",
-    },
-    {
-        id: "postscript",
-        title: "Frontend Engineer",
-        company: "Postscript",
-        bullets: [
-            "Worked with 4-person design team as the sole engineer to lead a revamp of the entire UI/UX of the web application in three months",
-            "Performed user & market research with the design team",
-            "Managed and led development from planning, to prototyping, to development, to QA, and to production",
-        ],
-        dates: "June 2021 - February 2022",
-    },
-    {
-        id: "asurion",
-        title: "Software Engineer",
-        company: "Asurion",
-        bullets: [
-            "Helped establish a team of eight engineers to build a Wi-Fi diagnostic service",
-            "Introduced CI/CD and reusable code in a Lerna/Yarn monorepo to cut down duration of development cycle by up to 40%",
-            "Grew the product to one of Asurion’s most profitable services",
-        ],
-        dates: "January 2020 - June 2021",
-    },
-    {
-        id: "amazon",
-        title: "Software Development Engineer Intern",
-        company: "Amazon",
-        bullets: [
-            "Built an internal tool for the mobile homepage team to automate card submissions using Ruby on Rails, React, and AWS",
-            "Improved the inter-team speed and quality of communication by automating a previously manual process",
-        ],
-        dates: "May - August 2019",
-    },
-    {
-        id: "heal",
-        title: "React Native Software Engineer",
-        company: "Healthware Consortium",
-        bullets: [
-            "Converted an Objective-C and Swift based iOS app into a cross-platform React Native application",
-            "Rewrote controller layer to be compatible with the API layer built with Enterprise Java and the SQL database",
-        ],
-        dates: "May 2018 - May 2019",
-    },
-];
+import ExperienceSectionList from "../common/section/ExperienceSectionList";
+import useContentful from "../../hooks/useContentful";
 
 const ListContainer = styled.div`
     width: 100%;
@@ -182,6 +115,26 @@ const ExperienceSection = () => {
         }, 75);
     };
 
+    const { content } = useContentful();
+
+    
+    const keys = Array.from(content.keys()).filter((value) => value.startsWith('experience-'));
+    const workExperience = new Array(keys.length);
+    
+    for (const key of keys) {
+        const item = content.get(key);
+        if (item) {
+            const bullets = item.fields.bullets.split('\n');
+            workExperience[workExperience.length - item.fields.index - 1] = ({
+                company: item.fields.company,
+                id: item.fields.id,
+                title: item.fields.jobtitle,
+                dates: item.fields.dates,
+                bullets: bullets,
+            });
+        }
+    }
+
     return (
         <Section id="experience">
             <SectionContainer maxWidth="750px">
@@ -190,7 +143,7 @@ const ExperienceSection = () => {
                     <ListContainer>
                         <ListLabelContainer>
                             <ListLabelTab keyIndex={currentIndex} />
-                            {EXPERIENCE_LIST.map((value, index) => (
+                            {workExperience.map((value, index) => (
                                 <Label
                                     highlight={currentIndex === index}
                                     onClick={() => changeIndex(index)}
@@ -200,10 +153,12 @@ const ExperienceSection = () => {
                                 </Label>
                             ))}
                         </ListLabelContainer>
-                        <ExperienceSectionList
-                            experience={EXPERIENCE_LIST[currentIndex]}
-                            shouldFadeOut={shouldFadeOut}
-                        />
+                        {workExperience.length > 0 && 
+                            <ExperienceSectionList
+                                experience={workExperience[currentIndex]}
+                                shouldFadeOut={shouldFadeOut}
+                            />
+                        }
                     </ListContainer>
                 </SectionContent>
             </SectionContainer>

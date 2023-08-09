@@ -1,5 +1,5 @@
-import { BLOCKS } from '@contentful/rich-text-types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from "@contentful/rich-text-types";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const baseOptions: any = {
     renderNode: {
@@ -7,6 +7,7 @@ const baseOptions: any = {
     },
 };
 
-const componentFromContent = (document: any, options?: any) => documentToReactComponents(document, {...baseOptions, ...options });
+const componentFromContent = (document: any, options?: any) =>
+    documentToReactComponents(document, options ?? baseOptions);
 
 export default componentFromContent;
