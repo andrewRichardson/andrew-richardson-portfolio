@@ -111,7 +111,7 @@ const Description = styled.p`
 
 const HeadlineSection = () => {
     return (
-        <Section id="headline" fadeIn={false} align="flex-start">
+        <Section id="headline" $fadeIn={false} $align="flex-start">
             <HeadlineContainer>
                 <Heading>
                     <Title

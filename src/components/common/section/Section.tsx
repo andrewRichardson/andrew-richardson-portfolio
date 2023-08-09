@@ -3,15 +3,15 @@ import styled from "styled-components";
 import useIntersection from "../../../hooks/useIntersection";
 
 const StyledSection = styled.section<{
-    align: string;
-    fadeIn?: boolean;
+    $align: string;
+    $fadeIn?: boolean;
 }>`
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
     -webkit-box-align: center;
     flex-direction: column;
-    align-items: ${(props) => props.align};
+    align-items: ${(props) => props.$align};
     padding: 0px;
     max-width: 1000px;
     margin: 0 auto;
@@ -35,7 +35,7 @@ const StyledSection = styled.section<{
     }
 
     ${(props) =>
-        props.fadeIn &&
+        props.$fadeIn &&
         `
         @media (prefers-reduced-motion: no-preference) {
             animation-name: fade-in-section;
@@ -49,15 +49,15 @@ const StyledSection = styled.section<{
 type SectionProps = {
     children?: ReactNode;
     id?: string;
-    fadeIn?: boolean;
-    align?: string;
+    $fadeIn?: boolean;
+    $align?: string;
 };
 
 const Section = ({
     id,
     children,
-    fadeIn = true,
-    align = "center",
+    $fadeIn = true,
+    $align = "center",
 }: SectionProps) => {
     const ref: any = useRef(null);
     const isVisible = useIntersection(ref, "-50px");
@@ -69,8 +69,8 @@ const Section = ({
         }
     }, [isVisible, hasAnimated]);
 
-    return hasAnimated || !isVisible || !fadeIn ? (
-        <StyledSection ref={ref} id={id} fadeIn={fadeIn} align={align}>
+    return hasAnimated || !isVisible || !$fadeIn ? (
+        <StyledSection ref={ref} id={id} $fadeIn={$fadeIn} $align={$align}>
             {children}
         </StyledSection>
     ) : (

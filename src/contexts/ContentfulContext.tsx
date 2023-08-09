@@ -9,21 +9,27 @@ const contentfulClientConfig = {
 
 const mockEntry: Entry<any> = {
     sys: {
-        id: 'title', type: 'title', createdAt: 'test', locale: 'en-US', updatedAt: 'test', contentType: {
+        id: "title",
+        type: "title",
+        createdAt: "test",
+        locale: "en-US",
+        updatedAt: "test",
+        contentType: {
             sys: {
-                type: 'Link',
-                linkType: 'ContentType',
-                id: 'titlecontenttype',
-            }
-        }
-    }, fields: { text: 'Andrew Richardson' },
+                type: "Link",
+                linkType: "ContentType",
+                id: "titlecontenttype",
+            },
+        },
+    },
+    fields: { text: "Andrew Richardson" },
     metadata: { tags: [] },
     toPlainObject: function (): object {
         throw new Error("Function not implemented.");
     },
     update: function (): Promise<Entry<any>> {
         throw new Error("Function not implemented.");
-    }
+    },
 };
 
 export const getEntryKey = (type: string, title: string) => `${type}-${title}`;
@@ -33,7 +39,7 @@ type ContentfulContextType = {
 };
 
 const defaultContentfulContext: ContentfulContextType = {
-    content: new Map(Object.entries({'title-Main Title': mockEntry})),
+    content: new Map(Object.entries({ "title-Main Title": mockEntry })),
 };
 
 export const ContentfulContext = createContext<ContentfulContextType>(
@@ -52,7 +58,12 @@ const ContentfulProvider = ({ children }: ContentfulProviderProps) => {
         if (!isLoading) {
             setIsLoading(true);
 
-            if (!contentfulClientConfig.space || !contentfulClientConfig.environment || !contentfulClientConfig.accessToken) return;
+            if (
+                !contentfulClientConfig.space ||
+                !contentfulClientConfig.environment ||
+                !contentfulClientConfig.accessToken
+            )
+                return;
 
             const client = createClient(contentfulClientConfig);
             client

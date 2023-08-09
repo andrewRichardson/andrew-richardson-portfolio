@@ -35,7 +35,7 @@ const ContactSection = () => {
         <Section id="contact">
             <SectionContainer>
                 <StyledSectionContent>
-                    <SectionHeading align="center">
+                    <SectionHeading $align="center">
                         <Title title="How to Reach Me" />
                     </SectionHeading>
                     <StyledSectionDescription>

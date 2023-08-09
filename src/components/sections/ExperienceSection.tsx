@@ -38,7 +38,7 @@ const ListLabelContainer = styled.div`
     }
 `;
 
-const Label = styled.div<{ highlight?: boolean }>`
+const Label = styled.div<{ $highlight?: boolean }>`
     padding: 1rem 2rem;
     display: flex;
     align-items: center;
@@ -72,7 +72,7 @@ const Label = styled.div<{ highlight?: boolean }>`
     }
 
     ${(props) =>
-        props.highlight &&
+        props.$highlight &&
         `
         code {
             color: ${highlight} !important;
@@ -87,14 +87,14 @@ const Label = styled.div<{ highlight?: boolean }>`
     transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
 `;
 
-const ListLabelTab = styled.div<{ keyIndex: number }>`
+const ListLabelTab = styled.div<{ $keyIndex: number }>`
     position: absolute;
     z-index: 10;
     width: 2px;
     height: 52px;
     border-radius: 5px;
     background: ${highlight};
-    transform: translateY(calc(${(props) => props.keyIndex} * 52px));
+    transform: translateY(calc(${(props) => props.$keyIndex} * 52px));
 
     @media (max-width: 750px) {
         display: none;
@@ -105,13 +105,13 @@ const ListLabelTab = styled.div<{ keyIndex: number }>`
 
 const ExperienceSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [shouldFadeOut, setShouldFadeOut] = useState(false);
+    const [should$fadeOut, setShould$fadeOut] = useState(false);
 
     const changeIndex = (newIndex: number) => {
         setCurrentIndex(newIndex);
-        setShouldFadeOut(true);
+        setShould$fadeOut(true);
         setTimeout(() => {
-            setShouldFadeOut(false);
+            setShould$fadeOut(false);
         }, 75);
     };
 
@@ -138,15 +138,15 @@ const ExperienceSection = () => {
 
     return (
         <Section id="experience">
-            <SectionContainer maxWidth="750px">
+            <SectionContainer $maxWidth="750px">
                 <SectionContent>
-                    <SectionHeading align="right"># Experience</SectionHeading>
+                    <SectionHeading $align="right"># Experience</SectionHeading>
                     <ListContainer>
                         <ListLabelContainer>
-                            <ListLabelTab keyIndex={currentIndex} />
+                            <ListLabelTab $keyIndex={currentIndex} />
                             {workExperience.map((value, index) => (
                                 <Label
-                                    highlight={currentIndex === index}
+                                    $highlight={currentIndex === index}
                                     onClick={() => changeIndex(index)}
                                     key={`${value.id}`}
                                 >
@@ -157,7 +157,7 @@ const ExperienceSection = () => {
                         {workExperience.length > 0 && (
                             <ExperienceSectionList
                                 experience={workExperience[currentIndex]}
-                                shouldFadeOut={shouldFadeOut}
+                                should$fadeOut={should$fadeOut}
                             />
                         )}
                     </ListContainer>

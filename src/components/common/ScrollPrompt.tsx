@@ -4,7 +4,7 @@ import { Down } from "../../assets";
 import { highlight, background } from "../../utils/colors";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
-const ScrollPromptContainer = styled.div<{ showNav: boolean }>`
+const ScrollPromptContainer = styled.div<{ $showNav: boolean }>`
     position: absolute;
     display: flex;
     justify-content: center;
@@ -19,7 +19,7 @@ const ScrollPromptContainer = styled.div<{ showNav: boolean }>`
     right: 4rem;
 
     ${(props) =>
-        !props.showNav &&
+        !props.$showNav &&
         `
         display: none;
     `}
@@ -95,14 +95,14 @@ const LogoContainer = styled.a<{ size: number }>`
 `;
 
 type ScrollPromptProps = {
-    showNav: boolean;
+    $showNav: boolean;
 };
 
-const ScrollPrompt = ({ showNav }: ScrollPromptProps) => {
+const ScrollPrompt = ({ $showNav }: ScrollPromptProps) => {
     const isMobile = useMediaQuery("(max-width: 850px)");
 
     return (
-        <ScrollPromptContainer showNav={showNav && !isMobile}>
+        <ScrollPromptContainer $showNav={$showNav && !isMobile}>
             <LogoContainer role="button" href="#about" size={40}>
                 <Down id="down-arrow" />
             </LogoContainer>

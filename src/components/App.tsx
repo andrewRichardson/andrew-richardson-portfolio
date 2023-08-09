@@ -82,7 +82,7 @@ const NAVIGATION_LIST = [
 ];
 
 const App = () => {
-    const [showNav, setShowNav] = useState(true);
+    const [$showNav, set$showNav] = useState(true);
     const [lastScrollHeight, setLastScrollHeight] = useState(0);
 
     const listenToScroll = () => {
@@ -92,16 +92,16 @@ const App = () => {
 
         setLastScrollHeight(winScroll);
 
-        if (!showNav && winScroll < lastScrollHeight) {
-            setShowNav(true);
+        if (!$showNav && winScroll < lastScrollHeight) {
+            set$showNav(true);
         }
 
         if (winScroll > heightToHideFrom) {
-            if (showNav) {
-                setShowNav(false);
+            if ($showNav) {
+                set$showNav(false);
             }
         } else {
-            setShowNav(true);
+            set$showNav(true);
         }
     };
 
@@ -113,7 +113,7 @@ const App = () => {
     return (
         <ContentfulProvider>
             <Content>
-                <Menu showNav={showNav} navList={NAVIGATION_LIST} />
+                <Menu $showNav={$showNav} navList={NAVIGATION_LIST} />
                 <Main>
                     <HeadlineSection />
                     <AboutSection />
@@ -122,7 +122,7 @@ const App = () => {
                     {/* <ProjectsSection /> */}
                     <ContactSection />
                 </Main>
-                <ScrollPrompt showNav={showNav} />
+                <ScrollPrompt $showNav={$showNav} />
                 <Footer />
             </Content>
         </ContentfulProvider>
