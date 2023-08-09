@@ -39,17 +39,22 @@ const ContactSection = () => {
                         <Title title="How to Reach Me" />
                     </SectionHeading>
                     <StyledSectionDescription>
-                        <ContentDescription title="How to Reach Me" options={{
-                            renderNode: {
-                                [BLOCKS.PARAGRAPH]: (_: any, children: any) =>
-                                    children,
-                            },
-                            renderMark: {
-                                [MARKS.BOLD]: (children: any) => (
-                                    <LightText>{children}</LightText>
-                                ),
-                            },
-                        }} />
+                        <ContentDescription
+                            title="How to Reach Me"
+                            options={{
+                                renderNode: {
+                                    [BLOCKS.PARAGRAPH]: (
+                                        _: any,
+                                        children: any,
+                                    ) => children,
+                                },
+                                renderMark: {
+                                    [MARKS.BOLD]: (children: any) => (
+                                        <LightText>{children}</LightText>
+                                    ),
+                                },
+                            }}
+                        />
                     </StyledSectionDescription>
                     <ContactButton>
                         <Button title="Contact" />

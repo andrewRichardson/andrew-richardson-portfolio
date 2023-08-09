@@ -117,21 +117,22 @@ const ExperienceSection = () => {
 
     const { content } = useContentful();
 
-    
-    const keys = Array.from(content.keys()).filter((value) => value.startsWith('experience-'));
+    const keys = Array.from(content.keys()).filter((value) =>
+        value.startsWith("experience-"),
+    );
     const workExperience = new Array(keys.length);
-    
+
     for (const key of keys) {
         const item = content.get(key);
         if (item) {
-            const bullets = item.fields.bullets.split('\n');
-            workExperience[workExperience.length - item.fields.index - 1] = ({
+            const bullets = item.fields.bullets.split("\n");
+            workExperience[workExperience.length - item.fields.index - 1] = {
                 company: item.fields.company,
                 id: item.fields.id,
                 title: item.fields.jobtitle,
                 dates: item.fields.dates,
                 bullets: bullets,
-            });
+            };
         }
     }
 
@@ -153,12 +154,12 @@ const ExperienceSection = () => {
                                 </Label>
                             ))}
                         </ListLabelContainer>
-                        {workExperience.length > 0 && 
+                        {workExperience.length > 0 && (
                             <ExperienceSectionList
                                 experience={workExperience[currentIndex]}
                                 shouldFadeOut={shouldFadeOut}
                             />
-                        }
+                        )}
                     </ListContainer>
                 </SectionContent>
             </SectionContainer>

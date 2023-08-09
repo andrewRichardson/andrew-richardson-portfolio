@@ -33,7 +33,10 @@ const Description = ({ title, plain, options }: DescriptionProps) => {
 
     if (!entry) return null;
 
-    return componentFromContent(entry.fields.text, plain ? undefined : options ?? baseOptions);
+    return componentFromContent(
+        entry.fields.text,
+        plain ? undefined : options ?? baseOptions,
+    );
 };
 
 export default Description;
