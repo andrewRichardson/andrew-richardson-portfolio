@@ -103,7 +103,7 @@ const ScrollPrompt = ({ showNav }: ScrollPromptProps) => {
 
     return (
         <ScrollPromptContainer showNav={showNav && !isMobile}>
-            <LogoContainer href="#about" size={40}>
+            <LogoContainer role="button" href="#about" size={40}>
                 <Down id="down-arrow" />
             </LogoContainer>
         </ScrollPromptContainer>

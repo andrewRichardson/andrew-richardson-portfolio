@@ -186,7 +186,7 @@ const Menu = ({ showNav, navList }: NavMenuProps) => {
 
     return (
         <NavContainer showNav={showNav || isMobile}>
-            <LogoContainer href="#" size={40}>
+            <LogoContainer role="button" href="#" size={40}>
                 <Logo />
             </LogoContainer>
             {!isMobile ? (
