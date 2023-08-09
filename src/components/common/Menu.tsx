@@ -7,7 +7,7 @@ import MobileMenu from "./MobileMenu";
 import { NavigationList, getLinkProps } from "../../utils/constants";
 import Button from "./Button";
 
-const NavContainer = styled.nav<{ showNav: boolean }>`
+const NavContainer = styled.nav<{ $showNav: boolean }>`
     position: fixed;
     display: flex;
     flex-direction: row;
@@ -21,7 +21,7 @@ const NavContainer = styled.nav<{ showNav: boolean }>`
     -webkit-box-shadow: 0px 10px 30px -10px ${background};
 
     ${(props) =>
-        !props.showNav &&
+        !props.$showNav &&
         `
         transform: translateY(-100px);
     `}
@@ -172,11 +172,11 @@ const NavOptionHighlighted = styled(Button)`
 `;
 
 type NavMenuProps = {
-    showNav: boolean;
+    $showNav: boolean;
     navList: NavigationList;
 };
 
-const Menu = ({ showNav, navList }: NavMenuProps) => {
+const Menu = ({ $showNav, navList }: NavMenuProps) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const isMobile = useMediaQuery("(max-width: 850px)");
 
@@ -185,8 +185,8 @@ const Menu = ({ showNav, navList }: NavMenuProps) => {
     }, [isMobile]);
 
     return (
-        <NavContainer showNav={showNav || isMobile}>
-            <LogoContainer href="#" size={40}>
+        <NavContainer $showNav={$showNav || isMobile}>
+            <LogoContainer role="button" href="#" size={40}>
                 <Logo />
             </LogoContainer>
             {!isMobile ? (

@@ -9,7 +9,7 @@ export type ListObject = {
 
 export type ListGroupObject = ListObject[];
 
-type ListType = "none" | "bulleted" | "numbered";
+type $listType = "none" | "bulleted" | "numbered";
 
 const ListContainer = styled.div`
     display: flex;
@@ -26,7 +26,7 @@ const ColumnContainer = styled.ul`
     }
 `;
 
-const ListItem = styled.li<{ listType: ListType }>`
+const ListItem = styled.li<{ $listType: $listType }>`
     position: relative;
     padding-left: 20px;
     margin: 10px 0;
@@ -35,7 +35,7 @@ const ListItem = styled.li<{ listType: ListType }>`
     color: ${normalText};
 
     ${(props) =>
-        props.listType === "bulleted" &&
+        props.$listType === "bulleted" &&
         `
         
         ::before {
@@ -56,7 +56,7 @@ const ListTitle = styled.h2`
 
 type ListProps = {
     list: ListGroupObject;
-    listType?: ListType;
+    $listType?: $listType;
     columnSize?: number;
 };
 
@@ -74,7 +74,7 @@ const getColumns = (list: ListObject, columnSize: number): ListGroupObject => {
     return cols;
 };
 
-const List = ({ list, listType = "bulleted", columnSize }: ListProps) => {
+const List = ({ list, $listType = "bulleted", columnSize }: ListProps) => {
     const columns = useMemo(
         () =>
             columnSize && list.length === 1
@@ -91,10 +91,10 @@ const List = ({ list, listType = "bulleted", columnSize }: ListProps) => {
                         {column.title && <ListTitle>{column.title}</ListTitle>}
                         {column.list.map((value, index) => (
                             <ListItem
-                                listType={listType}
+                                $listType={$listType}
                                 key={`list-${cIndex}-${index}`}
                             >
-                                {listType === "numbered" && `${index + 1}.`}
+                                {$listType === "numbered" && `${index + 1}.`}
                                 {value}
                             </ListItem>
                         ))}

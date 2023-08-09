@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import styled from "styled-components";
 import { highlight } from "../../../utils/colors";
 
-const StyledHeading = styled.h1<{ align?: "left" | "right" | "center" }>`
+const StyledHeading = styled.h1<{ $align?: "left" | "right" | "center" }>`
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -16,7 +16,7 @@ const StyledHeading = styled.h1<{ align?: "left" | "right" | "center" }>`
     color: ${highlight};
 
     ${(props) =>
-        props.align === "left" &&
+        props.$align === "left" &&
         `
             text-align: left;
             margin-right: auto !important;
@@ -32,7 +32,7 @@ const StyledHeading = styled.h1<{ align?: "left" | "right" | "center" }>`
             background: ${highlight};
         }`}
     ${(props) =>
-        props.align === "right" &&
+        props.$align === "right" &&
         `
             text-align: right;
             margin-left: auto !important;
@@ -48,7 +48,7 @@ const StyledHeading = styled.h1<{ align?: "left" | "right" | "center" }>`
             background: ${highlight};
         }`}
     ${(props) =>
-        props.align === "center" &&
+        props.$align === "center" &&
         `
             width: unset;
             text-align: center;
@@ -58,11 +58,11 @@ const StyledHeading = styled.h1<{ align?: "left" | "right" | "center" }>`
 
 type SectionHeadingProps = {
     children: ReactNode;
-    align?: "left" | "right" | "center";
+    $align?: "left" | "right" | "center";
 };
 
-const SectionHeading = ({ children, align = "left" }: SectionHeadingProps) => {
-    return <StyledHeading align={align}>{children}</StyledHeading>;
+const SectionHeading = ({ children, $align = "left" }: SectionHeadingProps) => {
+    return <StyledHeading $align={$align}>{children}</StyledHeading>;
 };
 
 export default SectionHeading;

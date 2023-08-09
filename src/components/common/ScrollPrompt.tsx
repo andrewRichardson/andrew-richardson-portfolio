@@ -4,7 +4,7 @@ import { Down } from "../../assets";
 import { highlight, background } from "../../utils/colors";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
-const ScrollPromptContainer = styled.div<{ showNav: boolean }>`
+const ScrollPromptContainer = styled.div<{ $showNav: boolean }>`
     position: absolute;
     display: flex;
     justify-content: center;
@@ -15,11 +15,11 @@ const ScrollPromptContainer = styled.div<{ showNav: boolean }>`
     background: ${background};
     z-index: 1000;
     opacity: 0%;
-    bottom: 5rem;
-    right: 5rem;
+    bottom: 4rem;
+    right: 4rem;
 
     ${(props) =>
-        !props.showNav &&
+        !props.$showNav &&
         `
         display: none;
     `}
@@ -29,28 +29,28 @@ const ScrollPromptContainer = styled.div<{ showNav: boolean }>`
     @keyframes bounce {
         0% {
             opacity: 50%;
-            bottom: 5rem;
+            bottom: 4rem;
         }
         35% {
-            bottom: 5rem;
+            bottom: 4rem;
         }
         40% {
-            bottom: 6rem;
+            bottom: 5rem;
         }
         45% {
-            bottom: 5rem;
+            bottom: 4rem;
         }
         50% {
-            bottom: 5rem;
+            bottom: 4rem;
         }
         55% {
-            bottom: 6rem;
+            bottom: 5rem;
         }
         60% {
-            bottom: 5rem;
+            bottom: 4rem;
         }
         100% {
-            bottom: 5rem;
+            bottom: 4rem;
             opacity: 50%;
         }
     }
@@ -95,15 +95,15 @@ const LogoContainer = styled.a<{ size: number }>`
 `;
 
 type ScrollPromptProps = {
-    showNav: boolean;
+    $showNav: boolean;
 };
 
-const ScrollPrompt = ({ showNav }: ScrollPromptProps) => {
+const ScrollPrompt = ({ $showNav }: ScrollPromptProps) => {
     const isMobile = useMediaQuery("(max-width: 850px)");
 
     return (
-        <ScrollPromptContainer showNav={showNav && !isMobile}>
-            <LogoContainer href="#about" size={40}>
+        <ScrollPromptContainer $showNav={$showNav && !isMobile}>
+            <LogoContainer role="button" href="#about" size={40}>
                 <Down id="down-arrow" />
             </LogoContainer>
         </ScrollPromptContainer>
