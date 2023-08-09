@@ -4,6 +4,8 @@
     "private": true,
     "homepage": "",
     "dependencies": {
+        "@contentful/rich-text-react-renderer": "^15.17.1",
+        "@contentful/rich-text-types": "^16.2.1",
         "@testing-library/jest-dom": "^5.17.0",
         "@testing-library/react": "^14.0.0",
         "@testing-library/user-event": "^14.4.3",

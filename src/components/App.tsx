@@ -10,6 +10,7 @@ import ExperienceSection from "./sections/ExperienceSection";
 import ContactSection from "./sections/ContactSection";
 import Footer from "./common/Footer";
 import ScrollPrompt from "./common/ScrollPrompt";
+import ContentfulProvider from "../contexts/ContentfulContext";
 
 const Content = styled.div`
     display: flex;
@@ -110,19 +111,21 @@ const App = () => {
     });
 
     return (
-        <Content>
-            <Menu showNav={showNav} navList={NAVIGATION_LIST} />
-            <Main>
-                <HeadlineSection />
-                <AboutSection />
-                <ExperienceSection />
-                {/* TO-DO: Add projects sections */}
-                {/* <ProjectsSection /> */}
-                <ContactSection />
-            </Main>
-            <ScrollPrompt showNav={showNav} />
-            <Footer />
-        </Content>
+        <ContentfulProvider>
+            <Content>
+                <Menu showNav={showNav} navList={NAVIGATION_LIST} />
+                <Main>
+                    <HeadlineSection />
+                    <AboutSection />
+                    <ExperienceSection />
+                    {/* TO-DO: Add projects sections */}
+                    {/* <ProjectsSection /> */}
+                    <ContactSection />
+                </Main>
+                <ScrollPrompt showNav={showNav} />
+                <Footer />
+            </Content>
+        </ContentfulProvider>
     );
 };
 
