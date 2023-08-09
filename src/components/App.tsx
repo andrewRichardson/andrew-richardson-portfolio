@@ -10,6 +10,7 @@ import ExperienceSection from "./sections/ExperienceSection";
 import ContactSection from "./sections/ContactSection";
 import Footer from "./common/Footer";
 import ScrollPrompt from "./common/ScrollPrompt";
+import ContentfulProvider from "../contexts/ContentfulContext";
 
 const Content = styled.div`
     display: flex;
@@ -81,7 +82,7 @@ const NAVIGATION_LIST = [
 ];
 
 const App = () => {
-    const [showNav, setShowNav] = useState(true);
+    const [$showNav, set$showNav] = useState(true);
     const [lastScrollHeight, setLastScrollHeight] = useState(0);
 
     const listenToScroll = () => {
@@ -91,16 +92,16 @@ const App = () => {
 
         setLastScrollHeight(winScroll);
 
-        if (!showNav && winScroll < lastScrollHeight) {
-            setShowNav(true);
+        if (!$showNav && winScroll < lastScrollHeight) {
+            set$showNav(true);
         }
 
         if (winScroll > heightToHideFrom) {
-            if (showNav) {
-                setShowNav(false);
+            if ($showNav) {
+                set$showNav(false);
             }
         } else {
-            setShowNav(true);
+            set$showNav(true);
         }
     };
 
@@ -110,19 +111,21 @@ const App = () => {
     });
 
     return (
-        <Content>
-            <Menu showNav={showNav} navList={NAVIGATION_LIST} />
-            <Main>
-                <HeadlineSection />
-                <AboutSection />
-                <ExperienceSection />
-                {/* TO-DO: Add projects sections */}
-                {/* <ProjectsSection /> */}
-                <ContactSection />
-            </Main>
-            <ScrollPrompt showNav={showNav} />
-            <Footer />
-        </Content>
+        <ContentfulProvider>
+            <Content>
+                <Menu $showNav={$showNav} navList={NAVIGATION_LIST} />
+                <Main>
+                    <HeadlineSection />
+                    <AboutSection />
+                    <ExperienceSection />
+                    {/* TO-DO: Add projects sections */}
+                    {/* <ProjectsSection /> */}
+                    <ContactSection />
+                </Main>
+                <ScrollPrompt $showNav={$showNav} />
+                <Footer />
+            </Content>
+        </ContentfulProvider>
     );
 };
 

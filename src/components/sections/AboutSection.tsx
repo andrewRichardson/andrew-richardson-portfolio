@@ -4,10 +4,13 @@ import List from "../common/List";
 import {
     SectionContainer,
     SectionContent,
-    SectionDescription,
     SectionHeading,
     Section,
 } from "../common/section";
+import Title from "../contentful/Title";
+import Description from "../contentful/Description";
+import useContentful from "../../hooks/useContentful";
+import { getEntryKey } from "../../contexts/ContentfulContext";
 
 const AboutContent = styled(SectionContent)`
     margin: 0 40px 0 0;
@@ -32,42 +35,37 @@ const Headshot = styled.img`
     }
 `;
 
-const SKILLS = [
-    {
-        title: "Languages & Libraries",
-        list: ["React", "JavaScript (ES6+)", "TypeScript", "CSS", "Node.js"],
-    },
-    {
-        title: "Design",
-        list: ["Storybook", "Figma", "Photoshop"],
-    },
-    {
-        title: "Infra & Testing",
-        list: ["GitHub Actions", "Jest", "Cypress", "Webpack", "Husky"],
-    },
-];
-
 const AboutSection = () => {
+    const { content } = useContentful();
+
+    const langs = content.get(getEntryKey("skills", "Languages & Libraries"));
+    const design = content.get(getEntryKey("skills", "Design"));
+    const infra = content.get(getEntryKey("skills", "Infra & Testing"));
+
+    const langsSkill = {
+        title: langs?.fields?.title ?? "",
+        list: langs?.fields?.skills ?? [],
+    };
+    const designSkill = {
+        title: design?.fields?.title ?? "",
+        list: design?.fields?.skills ?? [],
+    };
+    const infraSkill = {
+        title: infra?.fields?.title ?? "",
+        list: infra?.fields?.skills ?? [],
+    };
+
+    const skills = [langsSkill, designSkill, infraSkill];
+
     return (
         <Section id="about">
             <SectionContainer>
                 <AboutContent>
-                    <SectionHeading># About me</SectionHeading>
-                    <SectionDescription>
-                        I am a product, leadership, and customer focused
-                        Software Engineer with a passion for making things.
-                    </SectionDescription>
-                    <SectionDescription>
-                        I have four total years of experience as an engineer; I
-                        have three years experience working on Frontend/Full
-                        Stack development with an additional years experience
-                        working on Mobile App development.
-                    </SectionDescription>
-                    <SectionDescription>
-                        Recently, the technologies and frameworks I have been
-                        using the most are:
-                    </SectionDescription>
-                    <List list={SKILLS} columnSize={5} />
+                    <SectionHeading>
+                        <Title title="About Me" />
+                    </SectionHeading>
+                    <Description title="About Me" />
+                    <List list={skills} columnSize={3} />
                 </AboutContent>
                 <Headshot
                     src={process.env.PUBLIC_URL + "/headshot.jpg"}

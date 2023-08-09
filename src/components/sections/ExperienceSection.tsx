@@ -8,75 +8,8 @@ import {
     SectionHeading,
     Section,
 } from "../common/section";
-import ExperienceSectionList, {
-    Experience,
-} from "../common/section/ExperienceSectionList";
-
-const EXPERIENCE_LIST: Experience[] = [
-    {
-        id: "asurion2",
-        title: "Senior Software Engineer, Tech Lead",
-        company: "Asurion",
-        bullets: [
-            "Lead a team of four engineers in Asurion's Digital Gateway space",
-            "The team owns all of Asurion's enterprise websites (asurion.com, phoneclaim.com, etc.) consisting of tens of thousands of pages and ~2 million monthly visitors",
-            "Tech stack includes React, Typescript, and Tailwind on the frontend in conjunction with NodeJS, Gatsby, graphQL, and Contentful, as the content management layer, and several cutting-edge AWS technologies like CDK, CloudFront, and CloudFormation supporting the backend",
-        ],
-        dates: "January 2023 - Present",
-    },
-    {
-        id: "tanium",
-        title: "Software Engineer",
-        company: "Tanium",
-        bullets: [
-            "Led a team to create customizable executive reports built with Typescript, React, Node.js, Webpack, and Go",
-            "Led technical design process and created an MVP that was pitched to leadership",
-            "Successfully oversaw product from initial development to production",
-        ],
-        dates: "February - November 2022",
-    },
-    {
-        id: "postscript",
-        title: "Frontend Software Engineer",
-        company: "Postscript",
-        bullets: [
-            "Worked with 4-person design team as to lead a revamp of the whole UI/UX of the web application",
-            "Performed user & market research with the design team",
-            "Managed and led development from planning, to prototyping, to development, to QA, and to production",
-        ],
-        dates: "June 2021 - February 2022",
-    },
-    {
-        id: "asurion",
-        title: "Software Engineer",
-        company: "Asurion",
-        bullets: [
-            "Helped establish a team of eight engineers to build a Wi-Fi diagnostic service",
-            "Introduced CI/CD and reusable code in a Lerna/Yarn monorepo to cut down duration of development cycle by up to 40%",
-        ],
-        dates: "January 2020 - June 2021",
-    },
-    {
-        id: "amazon",
-        title: "Software Development Engineer Intern",
-        company: "Amazon",
-        bullets: [
-            "Built an internal tool for the mobile homepage team to automate card submissions using Ruby on Rails, React, and AWS",
-            "Improved the inter-team speed and quality of communication by automating a previously manual process",
-        ],
-        dates: "May - August 2019",
-    },
-    {
-        id: "heal",
-        title: "React Native Software Engineer",
-        company: "Healthware Consortium",
-        bullets: [
-            "Converted an Objective-C and Swift based iOS app into a cross-platform React Native application",
-            "Rewrote controller layer to be compatible with the API layer built with Enterprise Java and the SQL database",
-        ],
-        dates: "May 2018 - May 2019",
-    },
-];
+import ExperienceSectionList from "../common/section/ExperienceSectionList";
+import useContentful from "../../hooks/useContentful";
 
 const ListContainer = styled.div`
     width: 100%;
@@ -105,7 +38,7 @@ const ListLabelContainer = styled.div`
     }
 `;
 
-const Label = styled.div<{ highlight?: boolean }>`
+const Label = styled.div<{ $highlight?: boolean }>`
     padding: 1rem 2rem;
     display: flex;
     align-items: center;
@@ -139,7 +72,7 @@ const Label = styled.div<{ highlight?: boolean }>`
     }
 
     ${(props) =>
-        props.highlight &&
+        props.$highlight &&
         `
         code {
             color: ${highlight} !important;
@@ -154,14 +87,14 @@ const Label = styled.div<{ highlight?: boolean }>`
     transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
 `;
 
-const ListLabelTab = styled.div<{ keyIndex: number }>`
+const ListLabelTab = styled.div<{ $keyIndex: number }>`
     position: absolute;
     z-index: 10;
     width: 2px;
     height: 52px;
     border-radius: 5px;
     background: ${highlight};
-    transform: translateY(calc(${(props) => props.keyIndex} * 52px));
+    transform: translateY(calc(${(props) => props.$keyIndex} * 52px));
 
     @media (max-width: 750px) {
         display: none;
@@ -172,27 +105,48 @@ const ListLabelTab = styled.div<{ keyIndex: number }>`
 
 const ExperienceSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [shouldFadeOut, setShouldFadeOut] = useState(false);
+    const [should$fadeOut, setShould$fadeOut] = useState(false);
 
     const changeIndex = (newIndex: number) => {
         setCurrentIndex(newIndex);
-        setShouldFadeOut(true);
+        setShould$fadeOut(true);
         setTimeout(() => {
-            setShouldFadeOut(false);
+            setShould$fadeOut(false);
         }, 75);
     };
 
+    const { content } = useContentful();
+
+    const keys = Array.from(content.keys()).filter((value) =>
+        value.startsWith("experience-"),
+    );
+    const workExperience = new Array(keys.length);
+
+    for (const key of keys) {
+        const item = content.get(key);
+        if (item) {
+            const bullets = item.fields.bullets.split("\n");
+            workExperience[workExperience.length - item.fields.index - 1] = {
+                company: item.fields.company,
+                id: item.fields.id,
+                title: item.fields.jobtitle,
+                dates: item.fields.dates,
+                bullets: bullets,
+            };
+        }
+    }
+
     return (
         <Section id="experience">
-            <SectionContainer maxWidth="750px">
+            <SectionContainer $maxWidth="750px">
                 <SectionContent>
-                    <SectionHeading align="right"># Experience</SectionHeading>
+                    <SectionHeading $align="right"># Experience</SectionHeading>
                     <ListContainer>
                         <ListLabelContainer>
-                            <ListLabelTab keyIndex={currentIndex} />
-                            {EXPERIENCE_LIST.map((value, index) => (
+                            <ListLabelTab $keyIndex={currentIndex} />
+                            {workExperience.map((value, index) => (
                                 <Label
-                                    highlight={currentIndex === index}
+                                    $highlight={currentIndex === index}
                                     onClick={() => changeIndex(index)}
                                     key={`${value.id}`}
                                 >
@@ -200,10 +154,12 @@ const ExperienceSection = () => {
                                 </Label>
                             ))}
                         </ListLabelContainer>
-                        <ExperienceSectionList
-                            experience={EXPERIENCE_LIST[currentIndex]}
-                            shouldFadeOut={shouldFadeOut}
-                        />
+                        {workExperience.length > 0 && (
+                            <ExperienceSectionList
+                                experience={workExperience[currentIndex]}
+                                should$fadeOut={should$fadeOut}
+                            />
+                        )}
                     </ListContainer>
                 </SectionContent>
             </SectionContainer>

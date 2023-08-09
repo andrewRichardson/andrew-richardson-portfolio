@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { darkText, highlight, lightText, normalText } from "../../utils/colors";
 import IconLink from "../common/IconLink";
-import Link from "../common/Link";
 import { Section } from "../common/section";
+import ContentDescription from "../contentful/Description";
+import Title from "../contentful/Title";
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 
 const HeadlineContainer = styled.div`
     min-height: 100vh;
@@ -78,14 +80,54 @@ const Description = styled.p`
     @media (prefers-reduced-motion: no-preference) {
         animation: fade-in-headline 1.6s 0s ease-out;
     }
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        text-decoration-skip-ink: auto;
+        position: relative;
+        width: fit-content;
+        color: ${highlight};
+        text-decoration: none;
+
+        &::after {
+            width: 0px;
+            content: "";
+            display: block;
+            margin: 0 auto;
+            height: 2px;
+            position: relative;
+            bottom: 0.17rem;
+            transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
+        }
+
+        &:hover::after {
+            width: 100%;
+            background: ${highlight};
+            transition: all 0.25s cubic-bezier(0.65, 0.05, 0.36, 1);
+        }
+    }
 `;
 
 const HeadlineSection = () => {
     return (
-        <Section id="headline" fadeIn={false} align="flex-start">
+        <Section id="headline" $fadeIn={false} $align="flex-start">
             <HeadlineContainer>
                 <Heading>
-                    <Intro>Hi, I'm </Intro> Andrew Richardson.
+                    <Title
+                        title="Main Title"
+                        options={{
+                            renderNode: {
+                                [BLOCKS.PARAGRAPH]: (_: any, children: any) =>
+                                    children,
+                            },
+                            renderMark: {
+                                [MARKS.BOLD]: (children: any) => (
+                                    <Intro>{children}</Intro>
+                                ),
+                            },
+                        }}
+                    />
                 </Heading>
                 <Subheading>
                     Software engineer;{" "}
@@ -93,6 +135,7 @@ const HeadlineSection = () => {
                         href="https://reactjs.org/"
                         icon={
                             <img
+                                width="auto"
                                 height="35"
                                 alt="React-logo"
                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1920px-React-icon.svg.png"
@@ -106,6 +149,7 @@ const HeadlineSection = () => {
                         href="https://www.typescriptlang.org/"
                         icon={
                             <img
+                                width="auto"
                                 height="35"
                                 alt="TypeScript-logo"
                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/512px-Typescript.svg.png"
@@ -117,10 +161,7 @@ const HeadlineSection = () => {
                     connoisseur.
                 </Subheading>
                 <Description>
-                    I build robust, engaging products and aspire to encourage my
-                    peers.&nbsp;&nbsp;Currently, I am a Senior Software Engineer
-                    & Tech Lead at{" "}
-                    <Link href="https://www.asurion.com">Asurion</Link>.
+                    <ContentDescription title="Main Description" plain />
                 </Description>
             </HeadlineContainer>
         </Section>

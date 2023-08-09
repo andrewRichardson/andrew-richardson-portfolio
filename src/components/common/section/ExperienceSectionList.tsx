@@ -48,7 +48,7 @@ const ListCompany = styled.span`
 `;
 
 const AnimatedExperienceContent = styled.div<{
-    fadeOut?: boolean;
+    $fadeOut?: boolean;
 }>`
     width: 100%;
 
@@ -78,7 +78,7 @@ const AnimatedExperienceContent = styled.div<{
     }
 
     ${(props) =>
-        props.fadeOut &&
+        props.$fadeOut &&
         `
         opacity: 0%;
 
@@ -101,23 +101,23 @@ export type Experience = {
 
 export type ExperienceSectionListProps = {
     experience: Experience;
-    shouldFadeOut?: boolean;
+    should$fadeOut?: boolean;
 };
 
 const ExperienceSectionList = ({
     experience,
-    shouldFadeOut,
+    should$fadeOut,
 }: ExperienceSectionListProps) => {
     return (
-        <AnimatedExperienceContent fadeOut={shouldFadeOut}>
+        <AnimatedExperienceContent $fadeOut={should$fadeOut}>
             <ListTitle>
                 {experience.title}{" "}
                 <ListCompany>@ {experience.company}</ListCompany>
             </ListTitle>
             <ListDates>{experience.dates}</ListDates>
             <List>
-                {experience.bullets.map((value) => (
-                    <ListItem key={value}>{value}</ListItem>
+                {experience.bullets.map((value, index) => (
+                    <ListItem key={value + index}>{value}</ListItem>
                 ))}
             </List>
         </AnimatedExperienceContent>
