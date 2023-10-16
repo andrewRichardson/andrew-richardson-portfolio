@@ -14,7 +14,7 @@
         "@types/react": "^18.2.20",
         "@types/react-dom": "^18.2.7",
         "@types/styled-components": "^5.1.26",
-        "contentful": "^10.4.2",
+        "contentful": "^10.6.3",
         "contentful-import": "^9.0.4",
         "hamburger-react": "^2.5.0",
         "json5": "^2.2.3",
