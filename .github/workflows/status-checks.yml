@@ -1,9 +1,7 @@
 name: status-checks
 on:
     pull_request:
-        branches: [dev]
-    push:
-      branches: [main]
+        branches: [main]
 
 jobs:
     test:
