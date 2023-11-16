@@ -26,6 +26,9 @@
         "typescript": "^5.1.6",
         "web-vitals": "^3.4.0"
     },
+    "resolutions": {
+        "postcss": "^8.4.31"
+    },
     "scripts": {
         "build": "react-scripts build",
         "lint": "eslint src",
@@ -33,7 +36,7 @@
         "format": "prettier src --check",
         "format:fix": "prettier src --write",
         "start": "react-scripts start",
-        "test": "react-scripts test"
+        "test": "react-scripts test --coverage --watchAll=false"
     },
     "eslintConfig": {
         "extends": [
