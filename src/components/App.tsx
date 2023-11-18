@@ -6,7 +6,6 @@ import { Email, Book, Info, Folder } from "../assets";
 import Menu from "./common/Menu";
 import AboutSection from "./sections/AboutSection";
 import ExperienceSection from "./sections/ExperienceSection";
-// import ProjectsSection from "./sections/ProjectsSection";
 import ContactSection from "./sections/ContactSection";
 import Footer from "./common/Footer";
 import ScrollPrompt from "./common/ScrollPrompt";
@@ -48,17 +47,17 @@ const Main = styled.main`
     }
 `;
 
-const NAVIGATION_LIST = [
+export const NAVIGATION_LIST = [
     {
         label: "# About",
         link: "#about",
-        icon: <Info />,
+        icon: Info(),
         anchor: true,
     },
     {
         label: "# Experience",
         link: "#experience",
-        icon: <Book />,
+        icon: Book(),
         anchor: true,
     },
     // {
@@ -70,38 +69,37 @@ const NAVIGATION_LIST = [
     {
         label: "# Contact",
         link: "#contact",
-        icon: <Email />,
+        icon: Email(),
         anchor: true,
     },
     {
         label: "Resume ↗",
         link: "resume.pdf",
-        icon: <Folder />,
+        icon: Folder(),
         highlight: true,
     },
 ];
 
+const heightToHideFrom = 400;
+
 const App = () => {
-    const [$showNav, set$showNav] = useState(true);
+    const [$showNav, setShowNav] = useState(true);
     const [lastScrollHeight, setLastScrollHeight] = useState(0);
 
     const listenToScroll = () => {
-        let heightToHideFrom = 400;
         const winScroll =
             document.body.scrollTop || document.documentElement.scrollTop;
 
         setLastScrollHeight(winScroll);
 
         if (!$showNav && winScroll < lastScrollHeight) {
-            set$showNav(true);
+            setShowNav(true);
         }
 
-        if (winScroll > heightToHideFrom) {
-            if ($showNav) {
-                set$showNav(false);
-            }
+        if (winScroll > heightToHideFrom && $showNav) {
+            setShowNav(false);
         } else {
-            set$showNav(true);
+            setShowNav(true);
         }
     };
 
@@ -118,8 +116,6 @@ const App = () => {
                     <HeadlineSection />
                     <AboutSection />
                     <ExperienceSection />
-                    {/* TO-DO: Add projects sections */}
-                    {/* <ProjectsSection /> */}
                     <ContactSection />
                 </Main>
                 <ScrollPrompt $showNav={$showNav} />

@@ -19,9 +19,7 @@ const useIntersection = (element: { current: any }, rootMargin: any) => {
 
                 return () => observer.unobserve(element.current);
             }
-        } catch (e) {
-            console.log(e);
-        }
+        } catch (e) {}
 
         return () => {};
         // eslint-disable-next-line react-hooks/exhaustive-deps

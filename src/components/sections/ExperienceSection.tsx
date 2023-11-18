@@ -117,23 +117,21 @@ const ExperienceSection = () => {
 
     const { content } = useContentful();
 
-    const keys = Array.from(content.keys()).filter((value) =>
-        value.startsWith("experience-"),
+    const entries = Array.from(content.entries()).filter((value) =>
+        value[0].startsWith("experience-"),
     );
-    const workExperience = new Array(keys.length);
+    const items = entries.map((value) => value[1]);
+    const workExperience = new Array(items.length);
 
-    for (const key of keys) {
-        const item = content.get(key);
-        if (item) {
-            const bullets = item.fields.bullets.split("\n");
-            workExperience[workExperience.length - item.fields.index - 1] = {
-                company: item.fields.company,
-                id: item.fields.id,
-                title: item.fields.jobtitle,
-                dates: item.fields.dates,
-                bullets: bullets,
-            };
-        }
+    for (const item of items) {
+        const bullets = item.fields.bullets.split("\n");
+        workExperience[workExperience.length - item.fields.index - 1] = {
+            company: item.fields.company,
+            id: item.fields.id,
+            title: item.fields.jobtitle,
+            dates: item.fields.dates,
+            bullets: bullets,
+        };
     }
 
     return (

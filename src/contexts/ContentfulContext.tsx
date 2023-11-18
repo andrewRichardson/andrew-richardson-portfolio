@@ -7,7 +7,7 @@ const contentfulClientConfig = {
     accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN ?? "",
 };
 
-const mockEntry: Entry<any> = {
+export const mockEntry: Entry<any> = {
     sys: {
         id: "title",
         type: "title",
@@ -34,11 +34,11 @@ const mockEntry: Entry<any> = {
 
 export const getEntryKey = (type: string, title: string) => `${type}-${title}`;
 
-type ContentfulContextType = {
+export type ContentfulContextType = {
     content: Map<string, Entry<any>>;
 };
 
-const defaultContentfulContext: ContentfulContextType = {
+export const defaultContentfulContext: ContentfulContextType = {
     content: new Map(Object.entries({ "title-Main Title": mockEntry })),
 };
 
@@ -80,6 +80,7 @@ const ContentfulProvider = ({ children }: ContentfulProviderProps) => {
                         );
                     });
                     setContent(contentMap);
+                    console.log(contentMap);
                 })
                 .catch(console.error);
         }
