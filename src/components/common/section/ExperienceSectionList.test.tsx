@@ -8,10 +8,15 @@ const mockExperience = {
     title: "title",
     dates: "dates",
     bullets: ["bullets"],
-}
+};
 
 test("renders Section", async () => {
-    render(<ExperienceSectionList experience={mockExperience} should$fadeOut={true} />);
+    render(
+        <ExperienceSectionList
+            experience={mockExperience}
+            should$fadeOut={true}
+        />,
+    );
     const section = await screen.findByText("title");
     expect(section).toBeInTheDocument();
 });

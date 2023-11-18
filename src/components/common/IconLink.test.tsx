@@ -5,7 +5,9 @@ import IconLink from "./IconLink";
 test("renders IconLink", () => {
     render(
         <div data-testid="link">
-            <IconLink iconPosition="right" href="" icon={<></>}>test</IconLink>
+            <IconLink iconPosition="right" href="" icon={<></>}>
+                test
+            </IconLink>
         </div>,
     );
     const iconLink = screen.getByTestId("link");

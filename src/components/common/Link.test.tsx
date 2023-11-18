@@ -5,7 +5,9 @@ import Link from "./Link";
 test("renders Link", () => {
     render(
         <div data-testid="link">
-            <Link isAnchor={false} href="">test</Link>
+            <Link isAnchor={false} href="">
+                test
+            </Link>
         </div>,
     );
     const link = screen.getByTestId("link");
@@ -15,7 +17,9 @@ test("renders Link", () => {
 test("renders Link anchor", () => {
     render(
         <div data-testid="link">
-            <Link isAnchor={true} href="">test</Link>
+            <Link isAnchor={true} href="">
+                test
+            </Link>
         </div>,
     );
     const link = screen.getByTestId("link");

@@ -6,7 +6,11 @@ import { NAVIGATION_LIST } from "../App";
 test("renders MobileMenu", () => {
     render(
         <div data-testid="menu">
-            <MobileMenu navList={NAVIGATION_LIST} $isOpen={true} setIsOpen={() => {}} />
+            <MobileMenu
+                navList={NAVIGATION_LIST}
+                $isOpen={true}
+                setIsOpen={() => {}}
+            />
         </div>,
     );
     const menu = screen.getByTestId("menu");
@@ -16,7 +20,11 @@ test("renders MobileMenu", () => {
 test("renders MobileMenu and clicks about", () => {
     render(
         <div data-testid="menu">
-            <MobileMenu navList={NAVIGATION_LIST} $isOpen={true} setIsOpen={() => {}} />
+            <MobileMenu
+                navList={NAVIGATION_LIST}
+                $isOpen={true}
+                setIsOpen={() => {}}
+            />
         </div>,
     );
     const about = screen.getAllByRole("link");

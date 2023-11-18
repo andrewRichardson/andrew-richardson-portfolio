@@ -5,7 +5,7 @@ import List from "./List";
 test("renders List", () => {
     render(
         <div data-testid="list">
-            <List list={[{list: [<></>], title: <></>}]} />
+            <List list={[{ list: [<></>], title: <></> }]} />
         </div>,
     );
     const listObject = screen.getByTestId("list");
@@ -15,7 +15,10 @@ test("renders List", () => {
 test("renders numbered List", () => {
     render(
         <div data-testid="list">
-            <List list={[{list: [<></>], title: <></>}]} $listType="numbered" />
+            <List
+                list={[{ list: [<></>], title: <></> }]}
+                $listType="numbered"
+            />
         </div>,
     );
     const listObject = screen.getByTestId("list");
@@ -25,7 +28,7 @@ test("renders numbered List", () => {
 test("renders List with columns", () => {
     render(
         <div data-testid="list">
-            <List list={[{list: []}]} columnSize={1} />
+            <List list={[{ list: [] }]} columnSize={1} />
         </div>,
     );
     const listObject = screen.getByTestId("list");
@@ -35,7 +38,7 @@ test("renders List with columns", () => {
 test("renders List with columns and data", () => {
     render(
         <div data-testid="list">
-            <List list={[{list: [<>1</>, <>2</>, <>3</>]}]} columnSize={2} />
+            <List list={[{ list: [<>1</>, <>2</>, <>3</>] }]} columnSize={2} />
         </div>,
     );
     const listObject = screen.getByTestId("list");
