@@ -66,7 +66,7 @@ const getColumns = (list: ListObject, columnSize: number): ListGroupObject => {
     let row = 0;
     list.list.forEach((value, index) => {
         row = Math.trunc(index / columnSize);
-        if (cols[row] === undefined) cols[row].list = [];
+        if (cols[row] === undefined) cols[row] = { list: [] };
 
         cols[row].list.push(value);
     });

@@ -57,6 +57,14 @@
         ]
     },
     "devDependencies": {
+        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
         "prettier": "^3.0.2"
-    }
+    },
+    "jest": {
+        "collectCoverageFrom": [
+          "src/**/*.{js,jsx,ts,tsx}",
+          "!src/setupTests.ts",
+          "!src/index.tsx"
+        ]
+      }
 }

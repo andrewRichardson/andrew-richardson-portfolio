@@ -213,7 +213,7 @@ const Menu = ({ $showNav, navList }: NavMenuProps) => {
                 </NavOptions>
             ) : (
                 <MobileMenu
-                    isOpen={isMobileMenuOpen}
+                    $isOpen={isMobileMenuOpen}
                     setIsOpen={setIsMobileMenuOpen}
                     navList={navList}
                 />
