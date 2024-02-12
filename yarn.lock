@@ -2076,10 +2076,10 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@sideway/address@^4.1.4":
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/@sideway/address/-/address-4.1.4.tgz#03dccebc6ea47fdc226f7d3d1ad512955d4783f0"
-  integrity sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw==
+"@sideway/address@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@sideway/address/-/address-4.1.5.tgz#4bc149a0076623ced99ca8208ba780d65a99b9d5"
+  integrity sha512-IqO/DUQHUkPeixNQ8n0JA6102hT9CmaljNTPmQ1u8MEhBo/R4Q8eKLN/vGZxuebwOroDB4cbpjheD4+/sKFK4Q==
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
@@ -3843,20 +3843,20 @@ contentful-batch-libs@^9.6.0:
     lodash.clonedeep "^4.5.0"
     uuid "^9.0.1"
 
-contentful-import@^9.4.30:
-  version "9.4.30"
-  resolved "https://registry.yarnpkg.com/contentful-import/-/contentful-import-9.4.30.tgz#e7fccb6542aac52825f85f151405c502c5612181"
-  integrity sha512-PdF1AEjFVMPxqaqX1kcDgx6NvQCdT0fNcOeovk7qpn0N32aUfMMgRJhkB0tVw09mjTCDza2xv1F5SKiRHYvq8g==
+contentful-import@^9.4.38:
+  version "9.4.38"
+  resolved "https://registry.yarnpkg.com/contentful-import/-/contentful-import-9.4.38.tgz#b19aff0414407eb0443b584331f19ad7a6b6c759"
+  integrity sha512-prPKLpamlvOT0VdvAeLO0CepJAdlPugv80OKxekyDklp/3SEoygLGRFnUbU7f8hXE/IOiC18MwaZTWYRctQPxg==
   dependencies:
     "@discoveryjs/json-ext" "^0.5.7"
     bluebird "^3.7.2"
     cli-table3 "^0.6.0"
     contentful-batch-libs "^9.6.0"
-    contentful-management "^11.13.1"
+    contentful-management "^11.15.0"
     date-fns "^2.30.0"
     eslint "^8.56.0"
     eslint-config-standard "^17.1.0"
-    joi "^17.12.0"
+    joi "^17.12.1"
     listr "^0.14.1"
     listr-update-renderer "^0.5.0"
     listr-verbose-renderer "^0.6.0"
@@ -3864,10 +3864,10 @@ contentful-import@^9.4.30:
     p-queue "^6.6.2"
     yargs "^17.7.2"
 
-contentful-management@^11.13.1:
-  version "11.13.3"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-11.13.3.tgz#67bb094f3f0b99cfccc8a7eb01dda526b84a21cb"
-  integrity sha512-jw1lbQ0TXACoWHsEE0vtvIZgvGyLJmeiMyhibKUx3rkFg4qi+1ySkjO3OEXmoTCALKd2V+T+uRUa7KfHqcskPg==
+contentful-management@^11.15.0:
+  version "11.15.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-11.15.0.tgz#403024816e211484819d1e5f441a98e0879f1f12"
+  integrity sha512-u5it8laHTRJY+WQVHOSBGhzcb1ucgHg9MU12EMf+w088jcONdZcgyNq75cQWdmaQv8tl3/T8YrDNuCTLSz4H1g==
   dependencies:
     "@contentful/rich-text-types" "^16.3.0"
     "@types/json-patch" "0.0.30"
@@ -6668,14 +6668,14 @@ jest@^27.4.3:
     import-local "^3.0.2"
     jest-cli "^27.5.1"
 
-joi@^17.12.0:
-  version "17.12.0"
-  resolved "https://registry.yarnpkg.com/joi/-/joi-17.12.0.tgz#a3fb5715f198beb0471cd551dd26792089c308d5"
-  integrity sha512-HSLsmSmXz+PV9PYoi3p7cgIbj06WnEBNT28n+bbBNcPZXZFqCzzvGqpTBPujx/Z0nh1+KNQPDrNgdmQ8dq0qYw==
+joi@^17.12.1:
+  version "17.12.1"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-17.12.1.tgz#3347ecf4cd3301962d42191c021b165eef1f395b"
+  integrity sha512-vtxmq+Lsc5SlfqotnfVjlViWfOL9nt/avKNbKYizwf6gsCfq9NYY/ceYRMFD8XDdrjJ9abJyScWmhmIiy+XRtQ==
   dependencies:
     "@hapi/hoek" "^9.3.0"
     "@hapi/topo" "^5.1.0"
-    "@sideway/address" "^4.1.4"
+    "@sideway/address" "^4.1.5"
     "@sideway/formula" "^3.0.1"
     "@sideway/pinpoint" "^2.0.0"
 
