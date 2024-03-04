@@ -5,7 +5,7 @@
     "homepage": "",
     "dependencies": {
         "@contentful/rich-text-react-renderer": "^15.19.4",
-        "@contentful/rich-text-types": "^16.3.3",
+        "@contentful/rich-text-types": "^16.3.5",
         "@testing-library/jest-dom": "^6.4.2",
         "@testing-library/react": "^14.2.1",
         "@testing-library/user-event": "^14.4.3",
