@@ -3178,10 +3178,10 @@ axe-core@^4.4.3:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.5.1.tgz#04d561c11b6d76d096d34e9d14ba2c294fb20cdc"
   integrity sha512-1exVbW0X1O/HSr/WMwnaweyqcWOgZgLiVxdLG34pvSQk4NlYQr9OUy0JLwuhFfuVNQzzqgH57eYzkFBCb3bIsQ==
 
-axios@^1.6.0, axios@^1.6.2:
-  version "1.6.5"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.5.tgz#2c090da14aeeab3770ad30c3a1461bc970fb0cd8"
-  integrity sha512-Ii012v05KEVuUoFWmMW/UQv9aRIc3ZwkWDcM+h5Il8izZCtRVpDUfwpoFf7eOtajT3QiGR4yDUx7lPqHJULgbg==
+axios@^1.6.2, axios@^1.6.7:
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.7.tgz#7b48c2e27c96f9c68a2f8f31e2ab19f59b06b0a7"
+  integrity sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==
   dependencies:
     follow-redirects "^1.15.4"
     form-data "^4.0.0"
@@ -3894,13 +3894,13 @@ contentful-sdk-core@^8.1.0:
     lodash.isstring "^4.0.1"
     p-throttle "^4.1.1"
 
-contentful@^10.6.18:
-  version "10.6.18"
-  resolved "https://registry.yarnpkg.com/contentful/-/contentful-10.6.18.tgz#3be70bcb3e8d9d7473552da9bdd54c49eb764c01"
-  integrity sha512-in23fv3MdLE4jCn7HZpfwopfZQXUJHJFvJYtWfD12U8T+xKRgaX63YDpoT7dKaJUwrdHmP7p2d8rUFsVt2zAog==
+contentful@^10.8.1:
+  version "10.8.1"
+  resolved "https://registry.yarnpkg.com/contentful/-/contentful-10.8.1.tgz#844a75e077bfa2f905653bf28deea07d54d74625"
+  integrity sha512-VTMNrTCjIAU4KW2Ayb7HLjEoQdK7to6R5WRzda2kmjW2EI0j9oLVLFsUfY/MbyL5bf2ueYa+NgxLVc1Lg6WBZw==
   dependencies:
     "@contentful/rich-text-types" "^16.0.2"
-    axios "^1.6.0"
+    axios "^1.6.7"
     contentful-resolve-response "^1.8.1"
     contentful-sdk-core "^8.1.0"
     json-stringify-safe "^5.0.1"
